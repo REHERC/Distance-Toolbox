@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
+using Photon.Forms;
 
 namespace Photon
 {
@@ -15,7 +14,8 @@ namespace Photon
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Globals.Variables.MainForm = new MainForm();
+            Application.Run(Globals.Variables.MainForm);
         }
     }
 }

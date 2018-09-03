@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.MenuBar = new System.Windows.Forms.Panel();
+            this.BugReportBtn = new Photon.GUI.PhotonTrayButton();
             this.PageNameBackground = new System.Windows.Forms.Panel();
             this.PageName = new System.Windows.Forms.Label();
             this.MenuBarSeparator = new System.Windows.Forms.Panel();
             this.MainPanel = new System.Windows.Forms.Panel();
-            this.BugReportBtn = new Photon.GUI.PhotonTrayButton();
             this.MenuBar.SuspendLayout();
             this.PageNameBackground.SuspendLayout();
             this.SuspendLayout();
@@ -48,6 +48,19 @@
             this.MenuBar.Padding = new System.Windows.Forms.Padding(16, 0, 0, 0);
             this.MenuBar.Size = new System.Drawing.Size(640, 27);
             this.MenuBar.TabIndex = 1;
+            // 
+            // BugReportBtn
+            // 
+            this.BugReportBtn.AutoSize = true;
+            this.BugReportBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BugReportBtn.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.BugReportBtn.Location = new System.Drawing.Point(515, 0);
+            this.BugReportBtn.Name = "BugReportBtn";
+            this.BugReportBtn.Size = new System.Drawing.Size(125, 27);
+            this.BugReportBtn.TabIndex = 1;
+            this.BugReportBtn.Text = "Bug report";
+            this.BugReportBtn.UseVisualStyleBackColor = true;
+            this.BugReportBtn.Click += new System.EventHandler(this.BugReportBtn_Click);
             // 
             // PageNameBackground
             // 
@@ -90,18 +103,6 @@
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Size = new System.Drawing.Size(640, 451);
             this.MainPanel.TabIndex = 4;
-            // 
-            // BugReportBtn
-            // 
-            this.BugReportBtn.AutoSize = true;
-            this.BugReportBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BugReportBtn.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.BugReportBtn.Location = new System.Drawing.Point(515, 0);
-            this.BugReportBtn.Name = "BugReportBtn";
-            this.BugReportBtn.Size = new System.Drawing.Size(125, 27);
-            this.BugReportBtn.TabIndex = 1;
-            this.BugReportBtn.Text = "Bug report";
-            this.BugReportBtn.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 

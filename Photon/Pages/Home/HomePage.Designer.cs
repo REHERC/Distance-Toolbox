@@ -48,7 +48,7 @@ namespace Photon.Pages.Home
             this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainPanel.Location = new System.Drawing.Point(0, 0);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Padding = new System.Windows.Forms.Padding(16);
+            this.MainPanel.Padding = new System.Windows.Forms.Padding(8);
             this.MainPanel.Size = new System.Drawing.Size(640, 480);
             this.MainPanel.TabIndex = 3;
             // 
@@ -64,13 +64,13 @@ namespace Photon.Pages.Home
             this.ToolsPanel.Controls.Add(this.SettingsBtn, 0, 0);
             this.ToolsPanel.Controls.Add(this.SpectrumBtn, 1, 0);
             this.ToolsPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ToolsPanel.Location = new System.Drawing.Point(16, 16);
+            this.ToolsPanel.Location = new System.Drawing.Point(8, 8);
             this.ToolsPanel.Name = "ToolsPanel";
             this.ToolsPanel.RowCount = 2;
             this.ToolsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.ToolsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.ToolsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.ToolsPanel.Size = new System.Drawing.Size(608, 300);
+            this.ToolsPanel.Size = new System.Drawing.Size(624, 300);
             this.ToolsPanel.TabIndex = 2;
             // 
             // photonButton1
@@ -78,10 +78,10 @@ namespace Photon.Pages.Home
             this.photonButton1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.photonButton1.Enabled = false;
             this.photonButton1.Font = new System.Drawing.Font("Arial Black", 10F);
-            this.photonButton1.Location = new System.Drawing.Point(412, 8);
+            this.photonButton1.Location = new System.Drawing.Point(423, 8);
             this.photonButton1.Margin = new System.Windows.Forms.Padding(8);
             this.photonButton1.Name = "photonButton1";
-            this.photonButton1.Size = new System.Drawing.Size(188, 134);
+            this.photonButton1.Size = new System.Drawing.Size(193, 134);
             this.photonButton1.TabIndex = 8;
             this.photonButton1.Text = "View\r\nSpectrum Logs";
             this.photonButton1.UseVisualStyleBackColor = true;
@@ -93,7 +93,7 @@ namespace Photon.Pages.Home
             this.SettingsBtn.Location = new System.Drawing.Point(8, 8);
             this.SettingsBtn.Margin = new System.Windows.Forms.Padding(8);
             this.SettingsBtn.Name = "SettingsBtn";
-            this.SettingsBtn.Size = new System.Drawing.Size(186, 134);
+            this.SettingsBtn.Size = new System.Drawing.Size(191, 134);
             this.SettingsBtn.TabIndex = 3;
             this.SettingsBtn.Text = "Settings";
             this.SettingsBtn.UseVisualStyleBackColor = true;
@@ -104,10 +104,10 @@ namespace Photon.Pages.Home
             this.SpectrumBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SpectrumBtn.Enabled = false;
             this.SpectrumBtn.Font = new System.Drawing.Font("Arial Black", 10F);
-            this.SpectrumBtn.Location = new System.Drawing.Point(210, 8);
+            this.SpectrumBtn.Location = new System.Drawing.Point(215, 8);
             this.SpectrumBtn.Margin = new System.Windows.Forms.Padding(8);
             this.SpectrumBtn.Name = "SpectrumBtn";
-            this.SpectrumBtn.Size = new System.Drawing.Size(186, 134);
+            this.SpectrumBtn.Size = new System.Drawing.Size(192, 134);
             this.SpectrumBtn.TabIndex = 7;
             this.SpectrumBtn.Text = "Manage\r\nSpectrum Plugins";
             this.SpectrumBtn.UseVisualStyleBackColor = true;

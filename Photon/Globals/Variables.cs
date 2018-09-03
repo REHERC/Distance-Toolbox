@@ -5,5 +5,6 @@ namespace Photon.Globals
     public static class Variables
     {
         public static MainForm MainForm;
+        public static string AppPath;
     }
 }

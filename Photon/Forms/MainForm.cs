@@ -107,5 +107,10 @@ namespace Photon.Forms
             }
             return new GUI.ToolPage.ToolPage();
         }
+
+        private void BugReportBtn_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/REHERC/Distance-Toolbox/issues");
+        }
     }
 }

@@ -188,6 +188,7 @@ namespace Photon.Pages.Settings
             this.Ok.TabIndex = 1;
             this.Ok.Text = "Ok";
             this.Ok.UseVisualStyleBackColor = true;
+            this.Ok.Click += new System.EventHandler(this.Ok_Click);
             // 
             // BottomSeparator
             // 

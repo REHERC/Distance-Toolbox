@@ -1,13 +1,21 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Photon.Serialization.Xml;
+using Photon.Serialization;
+using Photon.Serialization.Xml;
 
 namespace Photon.Pages.Settings
 {
     public partial class SettingsPage : Photon.GUI.ToolPage.ToolPage
     {
+        private AppSettings GeneralSettings;
+
+
         public SettingsPage()
         {
             InitializeComponent();
+            GeneralSettings = Globals.Settings.General.Data;
+            GameDirBox.Text = GeneralSettings.GameDir;
         }
 
         private void SettingsPage_Load(object sender, System.EventArgs e)
@@ -16,10 +24,7 @@ namespace Photon.Pages.Settings
             BottomSeparator.BackColor = Globals.Colors.PRIMARY_Main;
         }
 
-        private void BackButton_Click(object sender, System.EventArgs e)
-        {
-            Globals.Variables.MainForm.SetPage("pages:home");
-        }
+        
 
         private void GamePathBtn_Click(object sender, System.EventArgs e)
         {
@@ -33,7 +38,26 @@ namespace Photon.Pages.Settings
                 string path = file.Substring(0, file.Length - new List<string>(file.Split('\\')).Last().Length);
                 
                 GameDirBox.Text = path;
+                GeneralSettings.GameDir = path;
             }
+        }
+
+        private void BackButton_Click(object sender, System.EventArgs e)
+        {
+            Close();
+        }
+
+        private void Ok_Click(object sender, System.EventArgs e)
+        {
+            Globals.Settings.General.Data = GeneralSettings;
+            Globals.Settings.General.Save();
+            Close();
+        }
+
+        private void Close() {
+            Globals.Settings.General.Load();
+            Globals.Variables.MainForm.SetPage("pages:home");
+            Globals.Variables.MainForm.RemovePage("pages:settings");
         }
     }
 }

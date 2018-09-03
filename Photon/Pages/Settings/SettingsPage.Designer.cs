@@ -58,18 +58,18 @@ namespace Photon.Pages.Settings
             this.MainPanel.Location = new System.Drawing.Point(0, 0);
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Padding = new System.Windows.Forms.Padding(16);
-            this.MainPanel.Size = new System.Drawing.Size(623, 415);
+            this.MainPanel.Size = new System.Drawing.Size(640, 415);
             this.MainPanel.TabIndex = 2;
             // 
             // OptionsLayout
             // 
             this.OptionsLayout.AutoSize = true;
-            this.OptionsLayout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(160)))), ((int)(((byte)(0)))));
+            this.OptionsLayout.BackColor = System.Drawing.Color.Red;
             this.OptionsLayout.Controls.Add(this.OptionsTable);
             this.OptionsLayout.Dock = System.Windows.Forms.DockStyle.Top;
             this.OptionsLayout.Location = new System.Drawing.Point(16, 16);
             this.OptionsLayout.Name = "OptionsLayout";
-            this.OptionsLayout.Size = new System.Drawing.Size(591, 19);
+            this.OptionsLayout.Size = new System.Drawing.Size(608, 19);
             this.OptionsLayout.TabIndex = 2;
             // 
             // OptionsTable
@@ -85,7 +85,7 @@ namespace Photon.Pages.Settings
             this.OptionsTable.RowCount = 2;
             this.OptionsTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.OptionsTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.OptionsTable.Size = new System.Drawing.Size(591, 19);
+            this.OptionsTable.Size = new System.Drawing.Size(608, 19);
             this.OptionsTable.TabIndex = 0;
             // 
             // GamePathName
@@ -111,7 +111,7 @@ namespace Photon.Pages.Settings
             this.GamePathContainer.Margin = new System.Windows.Forms.Padding(0);
             this.GamePathContainer.Name = "GamePathContainer";
             this.GamePathContainer.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.GamePathContainer.Size = new System.Drawing.Size(449, 19);
+            this.GamePathContainer.Size = new System.Drawing.Size(466, 19);
             this.GamePathContainer.TabIndex = 1;
             // 
             // GameDirBox
@@ -124,7 +124,7 @@ namespace Photon.Pages.Settings
             this.GameDirBox.Location = new System.Drawing.Point(8, 0);
             this.GameDirBox.Name = "GameDirBox";
             this.GameDirBox.ReadOnly = true;
-            this.GameDirBox.Size = new System.Drawing.Size(399, 19);
+            this.GameDirBox.Size = new System.Drawing.Size(416, 19);
             this.GameDirBox.TabIndex = 1;
             this.GameDirBox.Text = "Not set.";
             this.GameDirBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -132,9 +132,11 @@ namespace Photon.Pages.Settings
             // GamePathBtn
             // 
             this.GamePathBtn.AutoSize = true;
+            this.GamePathBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.GamePathBtn.Cursor = System.Windows.Forms.Cursors.Default;
             this.GamePathBtn.Dock = System.Windows.Forms.DockStyle.Right;
             this.GamePathBtn.Font = new System.Drawing.Font("Arial Black", 10F, System.Drawing.FontStyle.Bold);
-            this.GamePathBtn.Location = new System.Drawing.Point(407, 0);
+            this.GamePathBtn.Location = new System.Drawing.Point(424, 0);
             this.GamePathBtn.Name = "GamePathBtn";
             this.GamePathBtn.Size = new System.Drawing.Size(34, 19);
             this.GamePathBtn.TabIndex = 1;
@@ -150,7 +152,7 @@ namespace Photon.Pages.Settings
             this.BottomPanel.Location = new System.Drawing.Point(0, 416);
             this.BottomPanel.Name = "BottomPanel";
             this.BottomPanel.Padding = new System.Windows.Forms.Padding(16);
-            this.BottomPanel.Size = new System.Drawing.Size(623, 64);
+            this.BottomPanel.Size = new System.Drawing.Size(640, 64);
             this.BottomPanel.TabIndex = 3;
             // 
             // ActionButtonsFlow
@@ -161,14 +163,15 @@ namespace Photon.Pages.Settings
             this.ActionButtonsFlow.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.ActionButtonsFlow.Location = new System.Drawing.Point(16, 16);
             this.ActionButtonsFlow.Name = "ActionButtonsFlow";
-            this.ActionButtonsFlow.Size = new System.Drawing.Size(591, 32);
+            this.ActionButtonsFlow.Size = new System.Drawing.Size(608, 32);
             this.ActionButtonsFlow.TabIndex = 2;
             // 
             // Cancel
             // 
             this.Cancel.AutoSize = true;
+            this.Cancel.Dock = System.Windows.Forms.DockStyle.Right;
             this.Cancel.Font = new System.Drawing.Font("Arial Black", 10F);
-            this.Cancel.Location = new System.Drawing.Point(459, 0);
+            this.Cancel.Location = new System.Drawing.Point(476, 0);
             this.Cancel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Cancel.Name = "Cancel";
             this.Cancel.Size = new System.Drawing.Size(128, 32);
@@ -180,8 +183,9 @@ namespace Photon.Pages.Settings
             // Ok
             // 
             this.Ok.AutoSize = true;
+            this.Ok.Dock = System.Windows.Forms.DockStyle.Right;
             this.Ok.Font = new System.Drawing.Font("Arial Black", 10F);
-            this.Ok.Location = new System.Drawing.Point(323, 0);
+            this.Ok.Location = new System.Drawing.Point(340, 0);
             this.Ok.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Ok.Name = "Ok";
             this.Ok.Size = new System.Drawing.Size(128, 32);
@@ -198,7 +202,7 @@ namespace Photon.Pages.Settings
             this.BottomSeparator.MaximumSize = new System.Drawing.Size(0, 1);
             this.BottomSeparator.MinimumSize = new System.Drawing.Size(0, 1);
             this.BottomSeparator.Name = "BottomSeparator";
-            this.BottomSeparator.Size = new System.Drawing.Size(623, 1);
+            this.BottomSeparator.Size = new System.Drawing.Size(640, 1);
             this.BottomSeparator.TabIndex = 4;
             // 
             // SettingsPage
@@ -210,7 +214,7 @@ namespace Photon.Pages.Settings
             this.Name = "SettingsPage";
             this.PageName = "pages:settings";
             this.PageTitle = "Settings";
-            this.Size = new System.Drawing.Size(623, 480);
+            this.Size = new System.Drawing.Size(640, 480);
             this.Load += new System.EventHandler(this.SettingsPage_Load);
             this.MainPanel.ResumeLayout(false);
             this.MainPanel.PerformLayout();

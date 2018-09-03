@@ -71,7 +71,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -81,6 +81,7 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
@@ -117,6 +118,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="GUI\ControlState.cs" />
+    <Compile Include="GUI\Label\PhotonHeaderLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="GUI\Label\PhotonLabel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -128,6 +132,12 @@
     </Compile>
     <Compile Include="GUI\ToolPage\ToolPage.cs">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Error\ErrorPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Error\ErrorPage.Designer.cs">
+      <DependentUpon>ErrorPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Pages\Home\HomePage.cs">
       <SubType>UserControl</SubType>
@@ -141,24 +151,40 @@
     <Compile Include="Pages\Settings\SettingsPage.Designer.cs">
       <DependentUpon>SettingsPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Spectrum\Main\ManagePluginsMainPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Spectrum\Main\ManagePluginsMainPage.Designer.cs">
+      <DependentUpon>ManagePluginsMainPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Serialization\Json\Classes\Spectrum\Framework\ManagerSettings.cs" />
+    <Compile Include="Serialization\Json\Classes\Spectrum\Framework\PluginManifest.cs" />
+    <Compile Include="Serialization\Json\JsonGeneric.cs" />
     <Compile Include="Serialization\Serializer\ISerializer.cs" />
     <Compile Include="Serialization\Serializer\Serializer.cs" />
     <Compile Include="Serialization\Serializer\SerializerType.cs" />
-    <Compile Include="Serialization\Serializer\XmlGeneric.cs" />
-    <Compile Include="Serialization\Xml\AppSettings.cs" />
+    <Compile Include="Serialization\Xml\XmlGeneric.cs" />
+    <Compile Include="Serialization\Xml\Classes\AppSettings.cs" />
+    <Compile Include="Utils\Utils.cs" />
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SplashForm.resx">
       <DependentUpon>SplashForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Error\ErrorPage.resx">
+      <DependentUpon>ErrorPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pages\Home\HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\Settings\SettingsPage.resx">
       <DependentUpon>SettingsPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Spectrum\Main\ManagePluginsMainPage.resx">
+      <DependentUpon>ManagePluginsMainPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -172,7 +198,6 @@
     </Compile>
     <None Include="app.config" />
     <None Include="packages.config" />
-    <None Include="Photon_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -183,9 +208,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Serialization\Json\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Logo.ico" />
     <Content Include="Resources\Logo.ico" />

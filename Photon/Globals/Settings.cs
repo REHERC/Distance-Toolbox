@@ -7,7 +7,7 @@ namespace Photon.Globals
     {
         public static void Initialize()
         {
-            General = new Serializer<AppSettings>(SerializerType.Xml,"Settings.xml",true);
+            General = new Serializer<AppSettings>(SerializerType.Xml,"Settings",true);
             General.Save();
 
         }

@@ -6,6 +6,13 @@ namespace Photon.GUI
 {
     public class PhotonButton : Button
     {
+        public PhotonButton()
+        {
+            Globals.Colors.OnColorsUpdated += new Action(delegate () {
+                this.Invalidate();
+            });
+        }
+        
         private ControlState State = ControlState.Normal;
 
         protected override void OnMouseEnter(EventArgs e)
@@ -61,32 +68,32 @@ namespace Photon.GUI
                 switch (State)
                 {
                     case ControlState.Normal:
-                        FillBrush = new SolidBrush(Globals.Colors.CONTROL_FILL_Light);
-                        LineBrush = new SolidBrush(Globals.Colors.CONTROL_FILL_Darker);
+                        FillBrush = new SolidBrush(Globals.Colors.GRAYSCALE_Light);
+                        LineBrush = new SolidBrush(Globals.Colors.GRAYSCALE_Darker);
                         TextBrush = new SolidBrush(Globals.Colors.PRIMARY_Main);
                         break;
                     case ControlState.Hover:
-                        FillBrush = new SolidBrush(Globals.Colors.CONTROL_FILL_Dark);
+                        FillBrush = new SolidBrush(Globals.Colors.GRAYSCALE_Dark);
                         LineBrush = new SolidBrush(Globals.Colors.PRIMARY_Main);
                         TextBrush = new SolidBrush(Globals.Colors.PRIMARY_Main);
                         break;
                     case ControlState.Pressed:
-                        FillBrush = new SolidBrush(Globals.Colors.CONTROL_FILL_Medium);
+                        FillBrush = new SolidBrush(Globals.Colors.GRAYSCALE_Medium);
                         LineBrush = new SolidBrush(Globals.Colors.PRIMARY_Main);
                         TextBrush = new SolidBrush(Globals.Colors.PRIMARY_Main);
                         break;
                     default:
-                        FillBrush = new SolidBrush(Globals.Colors.CONTROL_FILL_Light);
-                        LineBrush = new SolidBrush(Globals.Colors.CONTROL_FILL_Darker);
+                        FillBrush = new SolidBrush(Globals.Colors.GRAYSCALE_Light);
+                        LineBrush = new SolidBrush(Globals.Colors.GRAYSCALE_Darker);
                         TextBrush = new SolidBrush(Globals.Colors.PRIMARY_Main);
                         break;
                 }
             }
             else
             {
-                FillBrush = new SolidBrush(Globals.Colors.CONTROL_FILL_Light);
-                LineBrush = new SolidBrush(Globals.Colors.CONTROL_FILL_Darker);
-                TextBrush = new SolidBrush(Globals.Colors.CONTROL_FILL_Dark);
+                FillBrush = new SolidBrush(Globals.Colors.GRAYSCALE_Light);
+                LineBrush = new SolidBrush(Globals.Colors.GRAYSCALE_Darker);
+                TextBrush = new SolidBrush(Globals.Colors.GRAYSCALE_Dark);
             }
 
             e.Graphics.Clear(Color.Transparent);

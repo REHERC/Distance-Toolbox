@@ -17,11 +17,11 @@ namespace Photon.Serialization
                     DataSerializer = new XmlGenericSerializer<DATA_TYPE>();
                     break;
                 case SerializerType.Json:
-                    DataSerializer = null;
+                    DataSerializer = new JsonGenericSerializer<DATA_TYPE>();
                     break;
             }
 
-            FilePath = $@"{Variables.AppPath}\{FileName}";
+            FilePath = $@"{Variables.AppPath}\{FileName}.{Type.ToString().ToLowerInvariant()}";
 
             if (LoadOnCtor)
                 Load();

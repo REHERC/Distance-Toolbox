@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Photon.Serialization.Xml;
-using Photon.Serialization;
-using Photon.Serialization.Xml;
 
 namespace Photon.Pages.Settings
 {
@@ -20,12 +18,10 @@ namespace Photon.Pages.Settings
 
         private void SettingsPage_Load(object sender, System.EventArgs e)
         {
-            BottomPanel.BackColor = Globals.Colors.BACKGROUND_Dark;
+            BottomPanel.BackColor = Globals.Colors.CONTROL_Dark;
             BottomSeparator.BackColor = Globals.Colors.PRIMARY_Main;
         }
-
         
-
         private void GamePathBtn_Click(object sender, System.EventArgs e)
         {
             Microsoft.Win32.OpenFileDialog Dialog = new Microsoft.Win32.OpenFileDialog();
@@ -57,7 +53,6 @@ namespace Photon.Pages.Settings
         private void Close() {
             Globals.Settings.General.Load();
             Globals.Variables.MainForm.SetPage("pages:home");
-            Globals.Variables.MainForm.RemovePage("pages:settings");
         }
     }
 }

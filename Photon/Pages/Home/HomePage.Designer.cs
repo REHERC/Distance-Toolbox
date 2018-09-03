@@ -33,9 +33,12 @@ namespace Photon.Pages.Home
         {
             this.MainPanel = new System.Windows.Forms.Panel();
             this.ToolsPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.photonButton1 = new Photon.GUI.PhotonButton();
+            this.ManagePlaylistsBtn = new Photon.GUI.PhotonButton();
+            this.OnlineServersBtn = new Photon.GUI.PhotonButton();
+            this.RunGameBtn = new Photon.GUI.PhotonButton();
+            this.SpectrumLogsBtn = new Photon.GUI.PhotonButton();
             this.SettingsBtn = new Photon.GUI.PhotonButton();
-            this.SpectrumBtn = new Photon.GUI.PhotonButton();
+            this.SpectrumPluginsBtn = new Photon.GUI.PhotonButton();
             this.MainPanel.SuspendLayout();
             this.ToolsPanel.SuspendLayout();
             this.SuspendLayout();
@@ -60,9 +63,12 @@ namespace Photon.Pages.Home
             this.ToolsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.ToolsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.ToolsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.ToolsPanel.Controls.Add(this.photonButton1, 2, 0);
+            this.ToolsPanel.Controls.Add(this.ManagePlaylistsBtn, 2, 1);
+            this.ToolsPanel.Controls.Add(this.OnlineServersBtn, 1, 1);
+            this.ToolsPanel.Controls.Add(this.RunGameBtn, 0, 1);
+            this.ToolsPanel.Controls.Add(this.SpectrumLogsBtn, 2, 0);
             this.ToolsPanel.Controls.Add(this.SettingsBtn, 0, 0);
-            this.ToolsPanel.Controls.Add(this.SpectrumBtn, 1, 0);
+            this.ToolsPanel.Controls.Add(this.SpectrumPluginsBtn, 1, 0);
             this.ToolsPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.ToolsPanel.Location = new System.Drawing.Point(8, 8);
             this.ToolsPanel.Name = "ToolsPanel";
@@ -73,18 +79,57 @@ namespace Photon.Pages.Home
             this.ToolsPanel.Size = new System.Drawing.Size(624, 300);
             this.ToolsPanel.TabIndex = 2;
             // 
-            // photonButton1
+            // ManagePlaylistsBtn
             // 
-            this.photonButton1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.photonButton1.Enabled = false;
-            this.photonButton1.Font = new System.Drawing.Font("Arial Black", 10F);
-            this.photonButton1.Location = new System.Drawing.Point(423, 8);
-            this.photonButton1.Margin = new System.Windows.Forms.Padding(8);
-            this.photonButton1.Name = "photonButton1";
-            this.photonButton1.Size = new System.Drawing.Size(193, 134);
-            this.photonButton1.TabIndex = 8;
-            this.photonButton1.Text = "View\r\nSpectrum Logs";
-            this.photonButton1.UseVisualStyleBackColor = true;
+            this.ManagePlaylistsBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ManagePlaylistsBtn.Enabled = false;
+            this.ManagePlaylistsBtn.Font = new System.Drawing.Font("Arial Black", 10F);
+            this.ManagePlaylistsBtn.Location = new System.Drawing.Point(423, 158);
+            this.ManagePlaylistsBtn.Margin = new System.Windows.Forms.Padding(8);
+            this.ManagePlaylistsBtn.Name = "ManagePlaylistsBtn";
+            this.ManagePlaylistsBtn.Size = new System.Drawing.Size(193, 134);
+            this.ManagePlaylistsBtn.TabIndex = 12;
+            this.ManagePlaylistsBtn.Text = "Manage Levels Playlists";
+            this.ManagePlaylistsBtn.UseVisualStyleBackColor = true;
+            // 
+            // OnlineServersBtn
+            // 
+            this.OnlineServersBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.OnlineServersBtn.Enabled = false;
+            this.OnlineServersBtn.Font = new System.Drawing.Font("Arial Black", 10F);
+            this.OnlineServersBtn.Location = new System.Drawing.Point(215, 158);
+            this.OnlineServersBtn.Margin = new System.Windows.Forms.Padding(8);
+            this.OnlineServersBtn.Name = "OnlineServersBtn";
+            this.OnlineServersBtn.Size = new System.Drawing.Size(192, 134);
+            this.OnlineServersBtn.TabIndex = 11;
+            this.OnlineServersBtn.Text = "View Online Servers";
+            this.OnlineServersBtn.UseVisualStyleBackColor = true;
+            // 
+            // RunGameBtn
+            // 
+            this.RunGameBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RunGameBtn.Enabled = false;
+            this.RunGameBtn.Font = new System.Drawing.Font("Arial Black", 10F);
+            this.RunGameBtn.Location = new System.Drawing.Point(8, 158);
+            this.RunGameBtn.Margin = new System.Windows.Forms.Padding(8);
+            this.RunGameBtn.Name = "RunGameBtn";
+            this.RunGameBtn.Size = new System.Drawing.Size(191, 134);
+            this.RunGameBtn.TabIndex = 9;
+            this.RunGameBtn.Text = "Launch Distance";
+            this.RunGameBtn.UseVisualStyleBackColor = true;
+            // 
+            // SpectrumLogsBtn
+            // 
+            this.SpectrumLogsBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SpectrumLogsBtn.Enabled = false;
+            this.SpectrumLogsBtn.Font = new System.Drawing.Font("Arial Black", 10F);
+            this.SpectrumLogsBtn.Location = new System.Drawing.Point(423, 8);
+            this.SpectrumLogsBtn.Margin = new System.Windows.Forms.Padding(8);
+            this.SpectrumLogsBtn.Name = "SpectrumLogsBtn";
+            this.SpectrumLogsBtn.Size = new System.Drawing.Size(193, 134);
+            this.SpectrumLogsBtn.TabIndex = 8;
+            this.SpectrumLogsBtn.Text = "View Spectrum Logs";
+            this.SpectrumLogsBtn.UseVisualStyleBackColor = true;
             // 
             // SettingsBtn
             // 
@@ -99,18 +144,18 @@ namespace Photon.Pages.Home
             this.SettingsBtn.UseVisualStyleBackColor = true;
             this.SettingsBtn.Click += new System.EventHandler(this.SettingsBtn_Click);
             // 
-            // SpectrumBtn
+            // SpectrumPluginsBtn
             // 
-            this.SpectrumBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SpectrumBtn.Enabled = false;
-            this.SpectrumBtn.Font = new System.Drawing.Font("Arial Black", 10F);
-            this.SpectrumBtn.Location = new System.Drawing.Point(215, 8);
-            this.SpectrumBtn.Margin = new System.Windows.Forms.Padding(8);
-            this.SpectrumBtn.Name = "SpectrumBtn";
-            this.SpectrumBtn.Size = new System.Drawing.Size(192, 134);
-            this.SpectrumBtn.TabIndex = 7;
-            this.SpectrumBtn.Text = "Manage\r\nSpectrum Plugins";
-            this.SpectrumBtn.UseVisualStyleBackColor = true;
+            this.SpectrumPluginsBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SpectrumPluginsBtn.Font = new System.Drawing.Font("Arial Black", 10F);
+            this.SpectrumPluginsBtn.Location = new System.Drawing.Point(215, 8);
+            this.SpectrumPluginsBtn.Margin = new System.Windows.Forms.Padding(8);
+            this.SpectrumPluginsBtn.Name = "SpectrumPluginsBtn";
+            this.SpectrumPluginsBtn.Size = new System.Drawing.Size(192, 134);
+            this.SpectrumPluginsBtn.TabIndex = 7;
+            this.SpectrumPluginsBtn.Text = "Manage Spectrum Plugins";
+            this.SpectrumPluginsBtn.UseVisualStyleBackColor = true;
+            this.SpectrumPluginsBtn.Click += new System.EventHandler(this.SpectrumPluginsBtn_Click);
             // 
             // HomePage
             // 
@@ -130,8 +175,11 @@ namespace Photon.Pages.Home
 
         private System.Windows.Forms.Panel MainPanel;
         private System.Windows.Forms.TableLayoutPanel ToolsPanel;
-        private GUI.PhotonButton photonButton1;
+        private GUI.PhotonButton SpectrumLogsBtn;
         private GUI.PhotonButton SettingsBtn;
-        private GUI.PhotonButton SpectrumBtn;
+        private GUI.PhotonButton SpectrumPluginsBtn;
+        private GUI.PhotonButton RunGameBtn;
+        private GUI.PhotonButton OnlineServersBtn;
+        private GUI.PhotonButton ManagePlaylistsBtn;
     }
 }

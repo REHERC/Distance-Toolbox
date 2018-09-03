@@ -6,6 +6,13 @@ namespace Photon.GUI
 {
     class PhotonTrayButton : Button
     {
+        public PhotonTrayButton()
+        {
+            Globals.Colors.OnColorsUpdated += new Action(delegate () {
+                this.Invalidate();
+            });
+        }
+
         private ControlState State = ControlState.Normal;
 
         protected override void OnMouseEnter(EventArgs e)
@@ -60,7 +67,7 @@ namespace Photon.GUI
                 {
                     case ControlState.Normal:
                         FillBrush = new SolidBrush(this.BackColor);
-                        TextBrush = new SolidBrush(Globals.Colors.TEXT_Light);
+                        TextBrush = new SolidBrush(Globals.Colors.CONTROL_Lighter);
                         break;
                     case ControlState.Hover:
                         FillBrush = new SolidBrush(this.BackColor.MultiplyNoAlpha(1.2f));

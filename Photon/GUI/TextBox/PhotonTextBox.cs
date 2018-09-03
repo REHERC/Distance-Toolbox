@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 namespace Photon.GUI
 {
@@ -6,10 +7,19 @@ namespace Photon.GUI
     {
         public PhotonTextBox()
         {
+            Globals.Colors.OnColorsUpdated += new Action(delegate () {
+                this.Invalidate();
+            });
+
             BorderStyle = BorderStyle.None;
-            BackColor = Globals.Colors.TEXT_Light;
+            BackColor = Globals.Colors.CONTROL_Lighter;
             ForeColor = Globals.Colors.PRIMARY_Main;
         }
 
+        protected override void OnForeColorChanged(EventArgs e)
+        {
+            base.OnForeColorChanged(e);
+            ForeColor = Globals.Colors.PRIMARY_Main;
+        }
     }
 }

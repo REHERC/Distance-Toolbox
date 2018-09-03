@@ -12,10 +12,10 @@ namespace Photon.Forms
 
         private void SplashScreen_Load(object sender, EventArgs e)
         {
-            MainPanel.BackColor = Globals.Colors.BACKGROUND_Dark;
+            MainPanel.BackColor = Globals.Colors.CONTROL_Dark;
             HeaderParent.BackColor = Globals.Colors.PRIMARY_Main;
-            AppName.ForeColor = Globals.Colors.TEXT_Light;
-            LoadingLabel.ForeColor = Globals.Colors.TEXT_Light;
+            AppName.ForeColor = Globals.Colors.CONTROL_Lighter;
+            LoadingLabel.ForeColor = Globals.Colors.CONTROL_Lighter;
         }
 
         private void MainPanel_Paint(object sender, PaintEventArgs e)

@@ -4,7 +4,9 @@ using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 using Photon.GUI.ToolPage;
+using Photon.Pages.Error;
 using Photon.Pages.Home;
+using Photon.Pages.Settings;
 
 namespace Photon.Forms
 {
@@ -14,22 +16,26 @@ namespace Photon.Forms
         {
             Pages = new List<ToolPage>();
             InitializeComponent();
-            AddPageSafe(new HomePage());
-            SetPage("pages:home");
+            Globals.Colors.OnColorsUpdated += new Action(delegate () {
+                this.Invalidate();
+            });
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
             UpdateGUIColors();
+            AddPageSafe(new HomePage());
+            SetPage("pages:home");
+            AddPageSafe(new SettingsPage());
         }
         
         private void UpdateGUIColors()
         {
-            this.BackColor = Globals.Colors.BACKGROUND_Light;
-            MenuBar.BackColor = Globals.Colors.BACKGROUND_Dark;
+            this.BackColor = Globals.Colors.CONTROL_Light;
+            MenuBar.BackColor = Globals.Colors.CONTROL_Dark;
             MenuBarSeparator.BackColor = Globals.Colors.PRIMARY_Main;
             PageNameBackground.BackColor = Globals.Colors.PRIMARY_Main;
-            PageNameBackground.ForeColor = Globals.Colors.BACKGROUND_Light;
+            PageNameBackground.ForeColor = Globals.Colors.CONTROL_Light;
         }
 
 
@@ -52,9 +58,21 @@ namespace Photon.Forms
 
         public List<ToolPage> Pages;
 
+        public void AddPageForce(ToolPage page)
+        {
+            if (!HasPage(page.PageName))
+            {
+                RemovePage(page.PageName);
+            }
+            AddPage(page);
+        }
+
         public void AddPageSafe(ToolPage page)
         {
-            if (!HasPage(page.PageName)) AddPage(page);
+            if (!HasPage(page.PageName))
+            {
+                AddPage(page);
+            }  
         }
 
         public void AddPage(ToolPage page)
@@ -80,6 +98,7 @@ namespace Photon.Forms
                 page.Visible = false;
             }
             currentpage.Visible = true;
+            PageNameBackground.Visible = (bool)(currentpage.PageTitle != "");
             PageName.Text = currentpage.PageTitle;
         }
 
@@ -101,8 +120,8 @@ namespace Photon.Forms
                     return new List<ToolPage>(from page in Pages where page.PageName == name select page).Last();
                 }
                 catch (Exception NullRef)
-                { 
-
+                {
+                    return new ErrorPage("Internal Error", "The page you requested for couldn't be loaded.", "If you see this message, please report it using the \"Bug report\" button on the top-right corner.");
                 }
             }
             return new GUI.ToolPage.ToolPage();

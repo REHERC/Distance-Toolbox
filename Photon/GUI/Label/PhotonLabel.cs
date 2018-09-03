@@ -5,9 +5,16 @@ namespace Photon.GUI
 {
     class PhotonLabel : Label
     {
+        public PhotonLabel()
+        {
+            Globals.Colors.OnColorsUpdated += new Action(delegate () {
+                this.Invalidate();
+            });
+        }
+
         protected override void OnPaint(PaintEventArgs e)
         {
-            ForeColor = Globals.Colors.TEXT_Light;
+            ForeColor = Globals.Colors.CONTROL_Lighter;
             base.OnPaint(e);
         }
     }

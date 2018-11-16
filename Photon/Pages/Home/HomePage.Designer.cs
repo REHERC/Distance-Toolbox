@@ -33,12 +33,15 @@ namespace Photon.Pages.Home
         {
             this.MainPanel = new System.Windows.Forms.Panel();
             this.ToolsPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.ConfigureGameBtn = new Photon.GUI.PhotonButton();
             this.ManagePlaylistsBtn = new Photon.GUI.PhotonButton();
             this.OnlineServersBtn = new Photon.GUI.PhotonButton();
             this.RunGameBtn = new Photon.GUI.PhotonButton();
             this.SpectrumLogsBtn = new Photon.GUI.PhotonButton();
             this.SettingsBtn = new Photon.GUI.PhotonButton();
             this.SpectrumPluginsBtn = new Photon.GUI.PhotonButton();
+            this.SocialMediaBtn = new Photon.GUI.PhotonButton();
+            this.BackupBtn = new Photon.GUI.PhotonButton();
             this.MainPanel.SuspendLayout();
             this.ToolsPanel.SuspendLayout();
             this.SuspendLayout();
@@ -60,34 +63,48 @@ namespace Photon.Pages.Home
             this.ToolsPanel.AutoSize = true;
             this.ToolsPanel.BackColor = System.Drawing.Color.Transparent;
             this.ToolsPanel.ColumnCount = 3;
-            this.ToolsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.ToolsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33332F));
             this.ToolsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.ToolsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.ToolsPanel.Controls.Add(this.BackupBtn, 2, 2);
+            this.ToolsPanel.Controls.Add(this.ConfigureGameBtn, 1, 1);
             this.ToolsPanel.Controls.Add(this.ManagePlaylistsBtn, 2, 1);
-            this.ToolsPanel.Controls.Add(this.OnlineServersBtn, 1, 1);
+            this.ToolsPanel.Controls.Add(this.OnlineServersBtn, 1, 2);
             this.ToolsPanel.Controls.Add(this.RunGameBtn, 0, 1);
             this.ToolsPanel.Controls.Add(this.SpectrumLogsBtn, 2, 0);
             this.ToolsPanel.Controls.Add(this.SettingsBtn, 0, 0);
             this.ToolsPanel.Controls.Add(this.SpectrumPluginsBtn, 1, 0);
+            this.ToolsPanel.Controls.Add(this.SocialMediaBtn, 0, 2);
             this.ToolsPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.ToolsPanel.Location = new System.Drawing.Point(8, 8);
             this.ToolsPanel.Name = "ToolsPanel";
-            this.ToolsPanel.RowCount = 2;
-            this.ToolsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.ToolsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.ToolsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.ToolsPanel.Size = new System.Drawing.Size(624, 300);
+            this.ToolsPanel.RowCount = 3;
+            this.ToolsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 145F));
+            this.ToolsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 145F));
+            this.ToolsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 145F));
+            this.ToolsPanel.Size = new System.Drawing.Size(624, 435);
             this.ToolsPanel.TabIndex = 2;
+            // 
+            // ConfigureGameBtn
+            // 
+            this.ConfigureGameBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ConfigureGameBtn.Font = new System.Drawing.Font("Arial Black", 10F);
+            this.ConfigureGameBtn.Location = new System.Drawing.Point(215, 153);
+            this.ConfigureGameBtn.Margin = new System.Windows.Forms.Padding(8);
+            this.ConfigureGameBtn.Name = "ConfigureGameBtn";
+            this.ConfigureGameBtn.Size = new System.Drawing.Size(192, 129);
+            this.ConfigureGameBtn.TabIndex = 13;
+            this.ConfigureGameBtn.Text = "Configure Distance Startup Arguments";
+            this.ConfigureGameBtn.UseVisualStyleBackColor = true;
             // 
             // ManagePlaylistsBtn
             // 
             this.ManagePlaylistsBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ManagePlaylistsBtn.Enabled = false;
             this.ManagePlaylistsBtn.Font = new System.Drawing.Font("Arial Black", 10F);
-            this.ManagePlaylistsBtn.Location = new System.Drawing.Point(423, 158);
+            this.ManagePlaylistsBtn.Location = new System.Drawing.Point(423, 153);
             this.ManagePlaylistsBtn.Margin = new System.Windows.Forms.Padding(8);
             this.ManagePlaylistsBtn.Name = "ManagePlaylistsBtn";
-            this.ManagePlaylistsBtn.Size = new System.Drawing.Size(193, 134);
+            this.ManagePlaylistsBtn.Size = new System.Drawing.Size(193, 129);
             this.ManagePlaylistsBtn.TabIndex = 12;
             this.ManagePlaylistsBtn.Text = "Manage Levels Playlists";
             this.ManagePlaylistsBtn.UseVisualStyleBackColor = true;
@@ -97,10 +114,10 @@ namespace Photon.Pages.Home
             this.OnlineServersBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.OnlineServersBtn.Enabled = false;
             this.OnlineServersBtn.Font = new System.Drawing.Font("Arial Black", 10F);
-            this.OnlineServersBtn.Location = new System.Drawing.Point(215, 158);
+            this.OnlineServersBtn.Location = new System.Drawing.Point(215, 298);
             this.OnlineServersBtn.Margin = new System.Windows.Forms.Padding(8);
             this.OnlineServersBtn.Name = "OnlineServersBtn";
-            this.OnlineServersBtn.Size = new System.Drawing.Size(192, 134);
+            this.OnlineServersBtn.Size = new System.Drawing.Size(192, 129);
             this.OnlineServersBtn.TabIndex = 11;
             this.OnlineServersBtn.Text = "View Online Servers";
             this.OnlineServersBtn.UseVisualStyleBackColor = true;
@@ -108,25 +125,24 @@ namespace Photon.Pages.Home
             // RunGameBtn
             // 
             this.RunGameBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RunGameBtn.Enabled = false;
             this.RunGameBtn.Font = new System.Drawing.Font("Arial Black", 10F);
-            this.RunGameBtn.Location = new System.Drawing.Point(8, 158);
+            this.RunGameBtn.Location = new System.Drawing.Point(8, 153);
             this.RunGameBtn.Margin = new System.Windows.Forms.Padding(8);
             this.RunGameBtn.Name = "RunGameBtn";
-            this.RunGameBtn.Size = new System.Drawing.Size(191, 134);
+            this.RunGameBtn.Size = new System.Drawing.Size(191, 129);
             this.RunGameBtn.TabIndex = 9;
             this.RunGameBtn.Text = "Launch Distance";
             this.RunGameBtn.UseVisualStyleBackColor = true;
+            this.RunGameBtn.Click += new System.EventHandler(this.RunGameBtn_Click);
             // 
             // SpectrumLogsBtn
             // 
             this.SpectrumLogsBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SpectrumLogsBtn.Enabled = false;
             this.SpectrumLogsBtn.Font = new System.Drawing.Font("Arial Black", 10F);
             this.SpectrumLogsBtn.Location = new System.Drawing.Point(423, 8);
             this.SpectrumLogsBtn.Margin = new System.Windows.Forms.Padding(8);
             this.SpectrumLogsBtn.Name = "SpectrumLogsBtn";
-            this.SpectrumLogsBtn.Size = new System.Drawing.Size(193, 134);
+            this.SpectrumLogsBtn.Size = new System.Drawing.Size(193, 129);
             this.SpectrumLogsBtn.TabIndex = 8;
             this.SpectrumLogsBtn.Text = "View Spectrum Logs";
             this.SpectrumLogsBtn.UseVisualStyleBackColor = true;
@@ -138,7 +154,7 @@ namespace Photon.Pages.Home
             this.SettingsBtn.Location = new System.Drawing.Point(8, 8);
             this.SettingsBtn.Margin = new System.Windows.Forms.Padding(8);
             this.SettingsBtn.Name = "SettingsBtn";
-            this.SettingsBtn.Size = new System.Drawing.Size(191, 134);
+            this.SettingsBtn.Size = new System.Drawing.Size(191, 129);
             this.SettingsBtn.TabIndex = 3;
             this.SettingsBtn.Text = "Settings";
             this.SettingsBtn.UseVisualStyleBackColor = true;
@@ -151,11 +167,36 @@ namespace Photon.Pages.Home
             this.SpectrumPluginsBtn.Location = new System.Drawing.Point(215, 8);
             this.SpectrumPluginsBtn.Margin = new System.Windows.Forms.Padding(8);
             this.SpectrumPluginsBtn.Name = "SpectrumPluginsBtn";
-            this.SpectrumPluginsBtn.Size = new System.Drawing.Size(192, 134);
+            this.SpectrumPluginsBtn.Size = new System.Drawing.Size(192, 129);
             this.SpectrumPluginsBtn.TabIndex = 7;
             this.SpectrumPluginsBtn.Text = "Manage Spectrum Plugins";
             this.SpectrumPluginsBtn.UseVisualStyleBackColor = true;
             this.SpectrumPluginsBtn.Click += new System.EventHandler(this.SpectrumPluginsBtn_Click);
+            // 
+            // SocialMediaBtn
+            // 
+            this.SocialMediaBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SocialMediaBtn.Enabled = false;
+            this.SocialMediaBtn.Font = new System.Drawing.Font("Arial Black", 10F);
+            this.SocialMediaBtn.Location = new System.Drawing.Point(8, 298);
+            this.SocialMediaBtn.Margin = new System.Windows.Forms.Padding(8);
+            this.SocialMediaBtn.Name = "SocialMediaBtn";
+            this.SocialMediaBtn.Size = new System.Drawing.Size(191, 129);
+            this.SocialMediaBtn.TabIndex = 14;
+            this.SocialMediaBtn.Text = "Refract\'s Social Media";
+            this.SocialMediaBtn.UseVisualStyleBackColor = true;
+            // 
+            // BackupBtn
+            // 
+            this.BackupBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BackupBtn.Font = new System.Drawing.Font("Arial Black", 10F);
+            this.BackupBtn.Location = new System.Drawing.Point(423, 298);
+            this.BackupBtn.Margin = new System.Windows.Forms.Padding(8);
+            this.BackupBtn.Name = "BackupBtn";
+            this.BackupBtn.Size = new System.Drawing.Size(193, 129);
+            this.BackupBtn.TabIndex = 15;
+            this.BackupBtn.Text = "Backup User Files";
+            this.BackupBtn.UseVisualStyleBackColor = true;
             // 
             // HomePage
             // 
@@ -164,6 +205,7 @@ namespace Photon.Pages.Home
             this.PageName = "pages:home";
             this.PageTitle = "Home";
             this.Size = new System.Drawing.Size(640, 480);
+            this.Load += new System.EventHandler(this.HomePage_Load);
             this.MainPanel.ResumeLayout(false);
             this.MainPanel.PerformLayout();
             this.ToolsPanel.ResumeLayout(false);
@@ -181,5 +223,8 @@ namespace Photon.Pages.Home
         private GUI.PhotonButton RunGameBtn;
         private GUI.PhotonButton OnlineServersBtn;
         private GUI.PhotonButton ManagePlaylistsBtn;
+        private GUI.PhotonButton ConfigureGameBtn;
+        private GUI.PhotonButton SocialMediaBtn;
+        private GUI.PhotonButton BackupBtn;
     }
 }

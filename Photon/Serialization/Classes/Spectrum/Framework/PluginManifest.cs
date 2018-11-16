@@ -2,10 +2,10 @@
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
 
-namespace Photon.Serialization.Json
+namespace Photon.Serialization.Data
 {
     [DataContract, Serializable]
-    class PluginManifest
+    public class PluginManifest
     {
         [DataMember, XmlElement(IsNullable = false)]
         public string FriendlyName = "Plugin";

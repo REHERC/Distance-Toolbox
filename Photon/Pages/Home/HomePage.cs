@@ -11,7 +11,6 @@ namespace Photon.Pages.Home
         public HomePage()
         {
             InitializeComponent();
-            
         }
 
         private void SettingsBtn_Click(object sender, EventArgs e)
@@ -20,7 +19,7 @@ namespace Photon.Pages.Home
             Globals.Variables.MainForm.SetPage("pages:settings");
         }
 
-        private void SpectrumPluginsBtn_Click(object sender, EventArgs e)
+        public void SpectrumPluginsBtn_Click(object sender, EventArgs e)
         {
             Globals.Settings.General.Load();
 
@@ -38,8 +37,34 @@ namespace Photon.Pages.Home
                 return;
             }
 
+            if (!Utils.SpectrumManagerSettingsExists())
+            {
+                Globals.Variables.MainForm.AddPageForce(new ErrorPage("", "Spectrum manager settings not found.", "The spectrum manager settings file \n\"Spectrum\\Settings\\ManagerSettings.json\" couldn't be found.", new PageRedirect(typeof(ManagerSettingsCreatePage), "Create the settings file")));
+                Globals.Variables.MainForm.SetPage("pages:error");
+                return;
+            }
+
             Globals.Variables.MainForm.AddPageForce(new ManagePluginsMainPage());
             Globals.Variables.MainForm.SetPage("pages:manageplugins.main");
+        }
+
+        private void RunGameBtn_Click(object sender, EventArgs e)
+        {
+            if (Utils.IsDistanceDirValid())
+            {
+                System.Diagnostics.Process.Start($@"{Globals.Settings.General.Data.GameDir}\Distance.exe");
+            }
+            else
+            {
+                Globals.Variables.MainForm.AddPageForce(new ErrorPage("", "Game directory error.", "The distance game directory couldn't be located.\n\nThe value might not have been set, you can go to the settings to change it.", new PageRedirect(typeof(SettingsPage), "Go to settings")));
+                Globals.Variables.MainForm.SetPage("pages:error");
+            }
+        }
+
+        private void HomePage_Load(object sender, EventArgs e)
+        {
+            SettingsBtn.Select();
+            SettingsBtn.Focus();
         }
     }
 }

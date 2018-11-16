@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace Photon.GUI
 {
-    class PhotonPanel : Panel
+    public class PhotonPanel : Panel
     {
         public PhotonPanel()
         {

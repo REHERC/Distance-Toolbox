@@ -1,6 +1,6 @@
 ﻿namespace Photon.Serialization
 {
-    interface ISerializer<SERIALIZER_TYPE> where SERIALIZER_TYPE : class, new()
+    public interface ISerializer<SERIALIZER_TYPE> where SERIALIZER_TYPE : class, new()
     {
         void Serialize(SERIALIZER_TYPE DATA, string FilePath);
 

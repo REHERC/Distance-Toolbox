@@ -14,6 +14,7 @@ namespace Photon.Serialization
             {
                 using (JsonWriter JSON_WRITER = new JsonTextWriter(FILE_STREAM))
                 {
+                    JSON_WRITER.Formatting = Formatting.Indented;
                     SERIALIZER.Serialize(JSON_WRITER, DATA);
                 }
             }

@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace Photon.GUI
 {
-    class PhotonTrayButton : Button
+    public class PhotonTrayButton : Button
     {
         public PhotonTrayButton()
         {

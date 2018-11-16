@@ -5,6 +5,21 @@ namespace Photon
 {
     public static class Utils
     {
+        public static bool SpectrumManagerSettingsExists()
+        {
+            if (!IsSpectrumInstalled())
+                return false;
+
+            string BaseDir = $@"{Settings.General.Data.GameDir}\Distance_Data\Spectrum";
+            
+            if (!Directory.Exists($@"{BaseDir}\Settings"))
+                return false;
+            if (!File.Exists($@"{BaseDir}\Settings\ManagerSettings.json"))
+                return false;
+
+            return true;
+        }
+        
         public static bool IsSpectrumInstalled()
         {
             if (!IsDistanceDirValid())

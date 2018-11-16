@@ -9,7 +9,9 @@ namespace Photon.GUI
         public PhotonButton()
         {
             Globals.Colors.OnColorsUpdated += new Action(delegate () {
-                this.Invalidate();
+                Invalidate();
+                Update();
+                Refresh();
             });
         }
         
@@ -20,6 +22,8 @@ namespace Photon.GUI
             State = ControlState.Hover;
             base.OnMouseEnter(e);
             Invalidate();
+            Update();
+            Refresh();
         }
 
         protected override void OnMouseLeave(EventArgs e)
@@ -27,6 +31,8 @@ namespace Photon.GUI
             State = ControlState.Normal;
             base.OnMouseLeave(e);
             Invalidate();
+            Update();
+            Refresh();
         }
 
         protected override void OnMouseDown(MouseEventArgs mevent)
@@ -37,6 +43,8 @@ namespace Photon.GUI
             }
             base.OnMouseDown(mevent);
             Invalidate();
+            Update();
+            Refresh();
         }
 
         protected override void OnMouseUp(MouseEventArgs mevent)
@@ -47,6 +55,16 @@ namespace Photon.GUI
             }
             base.OnMouseUp(mevent);
             Invalidate();
+            Update();
+            Refresh();
+        }
+
+        protected override void OnEnabledChanged(EventArgs e)
+        {
+            base.OnEnabledChanged(e);
+            Invalidate();
+            Update();
+            Refresh();
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -98,6 +116,18 @@ namespace Photon.GUI
 
             e.Graphics.Clear(Color.Transparent);
             e.Graphics.FillRectangle(FillBrush, bounds);
+
+            if (!Enabled)
+            {
+                int StepSize = 4;
+                Pen Line = new Pen(Globals.Colors.GRAYSCALE_Medium, StepSize);
+
+                for (int i = 0; i < this.Width + this.Height; i += (int)Math.Round(2.5 * StepSize))
+                {
+                    e.Graphics.DrawLine(Line, i + StepSize, 0 - StepSize, i - Height - StepSize, Height + StepSize);
+                }
+            }
+
             e.Graphics.FillRectangle(LineBrush, 0, 0, 10, Height);
             e.Graphics.DrawString(this.Text,this.Font,TextBrush, safebounds, sf);
 

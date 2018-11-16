@@ -37,16 +37,11 @@ namespace Photon.Forms
             PageNameBackground.BackColor = Globals.Colors.PRIMARY_Main;
             PageNameBackground.ForeColor = Globals.Colors.CONTROL_Light;
         }
-
-
-
-
-
-
-
-
-
-
+        
+        private void BugReportBtn_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/REHERC/Distance-Toolbox/issues");
+        }
 
 
 
@@ -100,6 +95,7 @@ namespace Photon.Forms
             currentpage.Visible = true;
             PageNameBackground.Visible = (bool)(currentpage.PageTitle != "");
             PageName.Text = currentpage.PageTitle;
+            currentpage.Reload();
         }
 
         public bool HasPage(string name)
@@ -125,11 +121,6 @@ namespace Photon.Forms
                 }
             }
             return new GUI.ToolPage.ToolPage();
-        }
-
-        private void BugReportBtn_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start("https://github.com/REHERC/Distance-Toolbox/issues");
         }
     }
 }

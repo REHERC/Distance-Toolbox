@@ -2,7 +2,7 @@
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
 
-namespace Photon.Serialization.Xml
+namespace Photon.Serialization.Data
 {
     [DataContract, Serializable]
     public class AppSettings

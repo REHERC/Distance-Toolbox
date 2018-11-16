@@ -9,7 +9,7 @@ namespace Photon.Serialization
         public DATA_TYPE Data;
         private ISerializer<DATA_TYPE> DataSerializer;
         
-        public Serializer(SerializerType Type, string FileName, bool LoadOnCtor = true)
+        public Serializer(SerializerType Type, string FileName, bool LoadOnCtor = true, bool AbsolutePath = false)
         {
             switch (Type)
             {
@@ -21,7 +21,14 @@ namespace Photon.Serialization
                     break;
             }
 
-            FilePath = $@"{Variables.AppPath}\{FileName}.{Type.ToString().ToLowerInvariant()}";
+            if (!AbsolutePath)
+            {
+                FilePath = $@"{Variables.AppPath}\{FileName}.{Type.ToString().ToLowerInvariant()}";
+            }
+            else
+            {
+                FilePath = FileName;
+            }
 
             if (LoadOnCtor)
                 Load();

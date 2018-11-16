@@ -1,5 +1,8 @@
-﻿namespace Photon.Pages.Spectrum
+﻿using System.ComponentModel;
+
+namespace Photon.Pages.Spectrum
 {
+    [ToolboxItem(false)]
     partial class ManagePluginsMainPage
     {
         /// <summary>
@@ -34,8 +37,13 @@
             this.Ok = new Photon.GUI.PhotonTrayButton();
             this.BottomSeparator = new System.Windows.Forms.Panel();
             this.MainPanel = new System.Windows.Forms.Panel();
+            this.NoPluginsPanel = new System.Windows.Forms.Panel();
+            this.NoPluginsLabel = new System.Windows.Forms.Label();
+            this.PluginList = new System.Windows.Forms.Panel();
             this.BottomPanel.SuspendLayout();
             this.ActionButtonsFlow.SuspendLayout();
+            this.MainPanel.SuspendLayout();
+            this.NoPluginsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // BottomPanel
@@ -70,7 +78,7 @@
             this.Cancel.Name = "Cancel";
             this.Cancel.Size = new System.Drawing.Size(128, 32);
             this.Cancel.TabIndex = 0;
-            this.Cancel.Text = "Cancel";
+            this.Cancel.Text = "Back";
             this.Cancel.UseVisualStyleBackColor = true;
             this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
             // 
@@ -84,7 +92,7 @@
             this.Ok.Name = "Ok";
             this.Ok.Size = new System.Drawing.Size(128, 32);
             this.Ok.TabIndex = 1;
-            this.Ok.Text = "Ok";
+            this.Ok.Text = "Refresh";
             this.Ok.UseVisualStyleBackColor = true;
             this.Ok.Click += new System.EventHandler(this.Ok_Click);
             // 
@@ -101,11 +109,45 @@
             // 
             // MainPanel
             // 
+            this.MainPanel.AutoScroll = true;
+            this.MainPanel.Controls.Add(this.NoPluginsPanel);
+            this.MainPanel.Controls.Add(this.PluginList);
             this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainPanel.Location = new System.Drawing.Point(0, 0);
             this.MainPanel.Name = "MainPanel";
+            this.MainPanel.Padding = new System.Windows.Forms.Padding(16);
             this.MainPanel.Size = new System.Drawing.Size(640, 415);
             this.MainPanel.TabIndex = 6;
+            // 
+            // NoPluginsPanel
+            // 
+            this.NoPluginsPanel.Controls.Add(this.NoPluginsLabel);
+            this.NoPluginsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.NoPluginsPanel.Location = new System.Drawing.Point(16, 16);
+            this.NoPluginsPanel.Name = "NoPluginsPanel";
+            this.NoPluginsPanel.Size = new System.Drawing.Size(608, 383);
+            this.NoPluginsPanel.TabIndex = 1;
+            // 
+            // NoPluginsLabel
+            // 
+            this.NoPluginsLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.NoPluginsLabel.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold);
+            this.NoPluginsLabel.Location = new System.Drawing.Point(0, 0);
+            this.NoPluginsLabel.Name = "NoPluginsLabel";
+            this.NoPluginsLabel.Size = new System.Drawing.Size(608, 383);
+            this.NoPluginsLabel.TabIndex = 0;
+            this.NoPluginsLabel.Text = "No plugins found";
+            this.NoPluginsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PluginList
+            // 
+            this.PluginList.AutoSize = true;
+            this.PluginList.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.PluginList.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PluginList.Location = new System.Drawing.Point(16, 16);
+            this.PluginList.Name = "PluginList";
+            this.PluginList.Size = new System.Drawing.Size(608, 0);
+            this.PluginList.TabIndex = 0;
             // 
             // ManagePluginsMainPage
             // 
@@ -120,6 +162,9 @@
             this.BottomPanel.ResumeLayout(false);
             this.ActionButtonsFlow.ResumeLayout(false);
             this.ActionButtonsFlow.PerformLayout();
+            this.MainPanel.ResumeLayout(false);
+            this.MainPanel.PerformLayout();
+            this.NoPluginsPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -132,5 +177,8 @@
         private GUI.PhotonTrayButton Ok;
         private System.Windows.Forms.Panel BottomSeparator;
         private System.Windows.Forms.Panel MainPanel;
+        private System.Windows.Forms.Panel PluginList;
+        private System.Windows.Forms.Panel NoPluginsPanel;
+        private System.Windows.Forms.Label NoPluginsLabel;
     }
 }

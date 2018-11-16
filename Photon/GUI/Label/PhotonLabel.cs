@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace Photon.GUI
 {
-    class PhotonLabel : Label
+    public class PhotonLabel : Label
     {
         public PhotonLabel()
         {

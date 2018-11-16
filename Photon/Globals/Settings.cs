@@ -1,5 +1,5 @@
 ﻿using Photon.Serialization;
-using Photon.Serialization.Xml;
+using Photon.Serialization.Data;
 
 namespace Photon.Globals
 {
@@ -9,13 +9,8 @@ namespace Photon.Globals
         {
             General = new Serializer<AppSettings>(SerializerType.Xml,"Settings",true);
             General.Save();
-
         }
-
-
+        
         public static Serializer<AppSettings> General;
-
-
-
     }
 }

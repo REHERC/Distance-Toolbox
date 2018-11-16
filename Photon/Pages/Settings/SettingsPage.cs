@@ -1,14 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Photon.Serialization.Xml;
+using Photon.Serialization.Data;
 
 namespace Photon.Pages.Settings
 {
     public partial class SettingsPage : Photon.GUI.ToolPage.ToolPage
     {
         private AppSettings GeneralSettings;
-
-
+        
         public SettingsPage()
         {
             InitializeComponent();

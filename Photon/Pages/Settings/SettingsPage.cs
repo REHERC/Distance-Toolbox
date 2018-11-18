@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using Photon.Serialization.Data;
@@ -9,7 +9,15 @@ namespace Photon.Pages.Settings
     public partial class SettingsPage : Photon.GUI.ToolPage.ToolPage
     {
         private AppSettings GeneralSettings;
-        
+
+        public override void Reload()
+        {
+            base.Reload();
+            BottomPanel.BackColor = Globals.Colors.CONTROL_Dark;
+            BottomSeparator.BackColor = Globals.Colors.PRIMARY_Main;
+            InterfaceColorPick.BackColor = Globals.Colors.PRIMARY_Main;
+        }
+
         public SettingsPage()
         {
             InitializeComponent();
@@ -19,9 +27,7 @@ namespace Photon.Pages.Settings
 
         private void SettingsPage_Load(object sender, System.EventArgs e)
         {
-            BottomPanel.BackColor = Globals.Colors.CONTROL_Dark;
-            BottomSeparator.BackColor = Globals.Colors.PRIMARY_Main;
-            InterfaceColorPick.BackColor = Globals.Colors.PRIMARY_Main;
+            Reload();
         }
         
         private void GamePathBtn_Click(object sender, System.EventArgs e)
@@ -90,9 +96,13 @@ namespace Photon.Pages.Settings
             Apply();
         }
 
-        private void OptionsTable_Paint(object sender, PaintEventArgs e)
+        private void ResetSettings_Click(object sender, System.EventArgs e)
         {
-
+            if (MessageBox.Show("Are you sure you want to reset all settings to their default value ?\nThis will restart the application ...", "Reset settings",MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                File.Delete($@"{Application.StartupPath}\Settings.xml");
+                Application.Restart();
+            }
         }
     }
 }

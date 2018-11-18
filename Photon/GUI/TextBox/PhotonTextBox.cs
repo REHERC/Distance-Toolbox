@@ -9,6 +9,7 @@ namespace Photon.GUI
         {
             Globals.Colors.OnColorsUpdated += new Action(delegate () {
                 this.Invalidate();
+                ForeColor = Globals.Colors.PRIMARY_Main;
             });
 
             BorderStyle = BorderStyle.None;

@@ -12,6 +12,13 @@ namespace Photon.Pages.Error
             FinalizeComponent();
         }
 
+        public override void Reload()
+        {
+            base.Reload();
+            BottomPanel.BackColor = Globals.Colors.CONTROL_Dark;
+            BottomSeparator.BackColor = Globals.Colors.PRIMARY_Main;
+        }
+
         public ErrorPage(string PageTitle_,string Title_,string Message_,PageRedirect Redirect_ = null)
         {
             InitializeComponent();
@@ -53,8 +60,7 @@ namespace Photon.Pages.Error
 
         private void ErrorPage_Load(object sender, System.EventArgs e)
         {
-            BottomPanel.BackColor = Globals.Colors.CONTROL_Dark;
-            BottomSeparator.BackColor = Globals.Colors.PRIMARY_Main;
+            Reload();
         }
 
         private void Ok_Click(object sender, System.EventArgs e)
@@ -71,11 +77,6 @@ namespace Photon.Pages.Error
         {
             Globals.Variables.MainForm.SetPage("pages:home");
             Globals.Variables.MainForm.RemovePage(this.PageName);
-        }
-
-        private void ErrorMessageContainer_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
-        {
-
         }
     }
 }

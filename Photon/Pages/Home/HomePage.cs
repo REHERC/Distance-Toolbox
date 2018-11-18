@@ -66,6 +66,7 @@ namespace Photon.Pages.Home
 
         private void HomePage_Load(object sender, EventArgs e)
         {
+            Reload();
             SettingsBtn.Select();
             SettingsBtn.Focus();
         }

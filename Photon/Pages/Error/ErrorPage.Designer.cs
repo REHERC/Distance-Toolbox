@@ -95,7 +95,6 @@ namespace Photon.Pages.Error
             this.ErrorMessageContainer.Padding = new System.Windows.Forms.Padding(8);
             this.ErrorMessageContainer.Size = new System.Drawing.Size(576, 34);
             this.ErrorMessageContainer.TabIndex = 0;
-            this.ErrorMessageContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.ErrorMessageContainer_Paint);
             // 
             // ErrorMessage
             // 

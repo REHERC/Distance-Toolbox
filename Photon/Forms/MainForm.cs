@@ -14,6 +14,7 @@ namespace Photon.Forms
     {
         public MainForm()
         {
+            
             Pages = new List<ToolPage>();
             InitializeComponent();
             Globals.Colors.OnColorsUpdated += new Action(delegate () {

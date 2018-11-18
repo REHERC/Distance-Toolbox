@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 using Photon.Pages.Home;
 using Photon.Serialization;
 using Photon.Serialization.Data;

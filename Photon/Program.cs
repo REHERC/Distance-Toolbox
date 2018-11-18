@@ -24,9 +24,10 @@ namespace Photon
             Parser.Default.ParseArguments<CommandLineArguments>(args).WithParsed<CommandLineArguments>(value => {
                 Arguments = value;
             });
-            
-            //MessageBox.Show(Parser.Default.FormatCommandLine<CommandLineArguments>(Arguments));
 
+            //MessageBox.Show(Parser.Default.FormatCommandLine<CommandLineArguments>(Arguments));
+            Globals.Settings.Initialize();
+            
             if (!Arguments.Splash)
             {
                 Thread SplashScreenThread = new Thread(new ThreadStart(delegate
@@ -39,14 +40,12 @@ namespace Photon
                 SplashScreenThread.Start();
             }
 
-
             Globals.Variables.MainForm = new MainForm();
             Globals.Variables.MainForm.Shown += MainFormLoad;
 
             Globals.Variables.AppPath = Application.StartupPath;
-
-            Globals.Settings.Initialize();
             
+
             Application.Run(Globals.Variables.MainForm);
         }
 
@@ -57,11 +56,10 @@ namespace Photon
             if (SplashScreen != null) {
                 SplashScreen.Invoke(new Action(SplashScreen.Close));
                 SplashScreen.Dispose();
-                SplashScreen = null;
             }
 
             MainForm form = (MainForm)sender;
-            
+
             form.BringToFront();
             form.Activate();
 

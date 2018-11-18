@@ -41,6 +41,8 @@ namespace Photon.Pages.Settings
             this.GamePathBtn = new Photon.GUI.PhotonButtonSimple();
             this.InterfaceColorContainer = new System.Windows.Forms.Panel();
             this.InterfaceColorPick = new System.Windows.Forms.Panel();
+            this.ResetSettingsContainer = new System.Windows.Forms.Panel();
+            this.ResetSettings = new Photon.GUI.PhotonButtonSimple();
             this.BottomPanel = new System.Windows.Forms.Panel();
             this.ActionButtonsFlow = new System.Windows.Forms.FlowLayoutPanel();
             this.Cancel = new Photon.GUI.PhotonTrayButton();
@@ -52,6 +54,7 @@ namespace Photon.Pages.Settings
             this.OptionsTable.SuspendLayout();
             this.GamePathContainer.SuspendLayout();
             this.InterfaceColorContainer.SuspendLayout();
+            this.ResetSettingsContainer.SuspendLayout();
             this.BottomPanel.SuspendLayout();
             this.ActionButtonsFlow.SuspendLayout();
             this.SuspendLayout();
@@ -75,7 +78,7 @@ namespace Photon.Pages.Settings
             this.OptionsLayout.Dock = System.Windows.Forms.DockStyle.Top;
             this.OptionsLayout.Location = new System.Drawing.Point(16, 16);
             this.OptionsLayout.Name = "OptionsLayout";
-            this.OptionsLayout.Size = new System.Drawing.Size(608, 39);
+            this.OptionsLayout.Size = new System.Drawing.Size(608, 103);
             this.OptionsLayout.TabIndex = 2;
             // 
             // OptionsTable
@@ -89,15 +92,16 @@ namespace Photon.Pages.Settings
             this.OptionsTable.Controls.Add(this.GamePathName, 0, 0);
             this.OptionsTable.Controls.Add(this.GamePathContainer, 1, 0);
             this.OptionsTable.Controls.Add(this.InterfaceColorContainer, 1, 1);
+            this.OptionsTable.Controls.Add(this.ResetSettingsContainer, 1, 2);
             this.OptionsTable.Dock = System.Windows.Forms.DockStyle.Top;
             this.OptionsTable.Location = new System.Drawing.Point(0, 0);
             this.OptionsTable.Name = "OptionsTable";
-            this.OptionsTable.RowCount = 2;
+            this.OptionsTable.RowCount = 3;
             this.OptionsTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.OptionsTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.OptionsTable.Size = new System.Drawing.Size(608, 39);
+            this.OptionsTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.OptionsTable.Size = new System.Drawing.Size(608, 103);
             this.OptionsTable.TabIndex = 0;
-            this.OptionsTable.Paint += new System.Windows.Forms.PaintEventHandler(this.OptionsTable_Paint);
             // 
             // InterfaceColorName
             // 
@@ -110,7 +114,7 @@ namespace Photon.Pages.Settings
             this.InterfaceColorName.Size = new System.Drawing.Size(136, 20);
             this.InterfaceColorName.TabIndex = 2;
             this.InterfaceColorName.Text = "Interface color :";
-            this.InterfaceColorName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.InterfaceColorName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // GamePathName
             // 
@@ -123,7 +127,7 @@ namespace Photon.Pages.Settings
             this.GamePathName.Size = new System.Drawing.Size(136, 19);
             this.GamePathName.TabIndex = 0;
             this.GamePathName.Text = "Game directory :";
-            this.GamePathName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.GamePathName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // GamePathContainer
             // 
@@ -190,6 +194,34 @@ namespace Photon.Pages.Settings
             this.InterfaceColorPick.Size = new System.Drawing.Size(442, 12);
             this.InterfaceColorPick.TabIndex = 4;
             this.InterfaceColorPick.Click += new System.EventHandler(this.InterfaceColorPick_Click);
+            // 
+            // ResetSettingsContainer
+            // 
+            this.ResetSettingsContainer.AutoSize = true;
+            this.ResetSettingsContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ResetSettingsContainer.BackColor = System.Drawing.Color.White;
+            this.ResetSettingsContainer.Controls.Add(this.ResetSettings);
+            this.ResetSettingsContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ResetSettingsContainer.Location = new System.Drawing.Point(150, 55);
+            this.ResetSettingsContainer.Margin = new System.Windows.Forms.Padding(8, 16, 8, 16);
+            this.ResetSettingsContainer.Name = "ResetSettingsContainer";
+            this.ResetSettingsContainer.Size = new System.Drawing.Size(450, 32);
+            this.ResetSettingsContainer.TabIndex = 4;
+            // 
+            // ResetSettings
+            // 
+            this.ResetSettings.AutoSize = true;
+            this.ResetSettings.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ResetSettings.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ResetSettings.Font = new System.Drawing.Font("Arial Black", 10F);
+            this.ResetSettings.Location = new System.Drawing.Point(0, 0);
+            this.ResetSettings.MinimumSize = new System.Drawing.Size(0, 32);
+            this.ResetSettings.Name = "ResetSettings";
+            this.ResetSettings.Size = new System.Drawing.Size(450, 32);
+            this.ResetSettings.TabIndex = 0;
+            this.ResetSettings.Text = "Reset to defaults";
+            this.ResetSettings.UseVisualStyleBackColor = true;
+            this.ResetSettings.Click += new System.EventHandler(this.ResetSettings_Click);
             // 
             // BottomPanel
             // 
@@ -287,6 +319,8 @@ namespace Photon.Pages.Settings
             this.GamePathContainer.ResumeLayout(false);
             this.GamePathContainer.PerformLayout();
             this.InterfaceColorContainer.ResumeLayout(false);
+            this.ResetSettingsContainer.ResumeLayout(false);
+            this.ResetSettingsContainer.PerformLayout();
             this.BottomPanel.ResumeLayout(false);
             this.ActionButtonsFlow.ResumeLayout(false);
             this.ActionButtonsFlow.PerformLayout();
@@ -312,5 +346,7 @@ namespace Photon.Pages.Settings
         private System.Windows.Forms.Panel InterfaceColorContainer;
         private System.Windows.Forms.Panel InterfaceColorPick;
         private GUI.PhotonTrayButton ApplyBtn;
+        private System.Windows.Forms.Panel ResetSettingsContainer;
+        private GUI.PhotonButtonSimple ResetSettings;
     }
 }

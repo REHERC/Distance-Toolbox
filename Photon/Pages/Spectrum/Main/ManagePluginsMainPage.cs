@@ -28,12 +28,18 @@ namespace Photon.Pages.Spectrum
             Globals.Variables.MainForm.SetPage("pages:home");
         }
 
-        private void ManagePluginsMainPage_Load(object sender, System.EventArgs e)
+        public override void Reload()
         {
+            base.Reload();
             BottomPanel.BackColor = Globals.Colors.CONTROL_Dark;
             BottomSeparator.BackColor = Globals.Colors.PRIMARY_Main;
 
             NoPluginsLabel.ForeColor = Globals.Colors.CONTROL_Dark;
+        }
+
+        private void ManagePluginsMainPage_Load(object sender, System.EventArgs e)
+        {
+            Reload();
         }
 
         private void LoadPluginList()
@@ -43,6 +49,11 @@ namespace Photon.Pages.Spectrum
 
             string pluginsdir = $@"{Globals.Settings.General.Data.GameDir}\Distance_Data\Spectrum\Plugins";
             
+            if (!Directory.Exists(pluginsdir))
+            {
+                return;
+            }
+
             foreach (string plugin in Directory.GetDirectories(pluginsdir)) {
                 SpectrumPluginListItem Item = new SpectrumPluginListItem(plugin)
                 {

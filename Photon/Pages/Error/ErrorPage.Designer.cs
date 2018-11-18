@@ -57,7 +57,7 @@ namespace Photon.Pages.Error
             this.ErrorHeader.Name = "ErrorHeader";
             this.ErrorHeader.Size = new System.Drawing.Size(608, 32);
             this.ErrorHeader.TabIndex = 0;
-            this.ErrorHeader.Text = "Error title";
+            this.ErrorHeader.Text = "Well ...";
             // 
             // MainPanel
             // 
@@ -95,6 +95,7 @@ namespace Photon.Pages.Error
             this.ErrorMessageContainer.Padding = new System.Windows.Forms.Padding(8);
             this.ErrorMessageContainer.Size = new System.Drawing.Size(576, 34);
             this.ErrorMessageContainer.TabIndex = 0;
+            this.ErrorMessageContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.ErrorMessageContainer_Paint);
             // 
             // ErrorMessage
             // 
@@ -104,9 +105,9 @@ namespace Photon.Pages.Error
             this.ErrorMessage.ForeColor = System.Drawing.Color.White;
             this.ErrorMessage.Location = new System.Drawing.Point(8, 8);
             this.ErrorMessage.Name = "ErrorMessage";
-            this.ErrorMessage.Size = new System.Drawing.Size(112, 18);
+            this.ErrorMessage.Size = new System.Drawing.Size(223, 18);
             this.ErrorMessage.TabIndex = 0;
-            this.ErrorMessage.Text = "Error message";
+            this.ErrorMessage.Text = "You\'re not supposed to see this";
             // 
             // BottomPanel
             // 
@@ -154,7 +155,7 @@ namespace Photon.Pages.Error
             this.Ok.Name = "Ok";
             this.Ok.Size = new System.Drawing.Size(128, 32);
             this.Ok.TabIndex = 1;
-            this.Ok.Text = "Open settings";
+            this.Ok.Text = "Button";
             this.Ok.UseVisualStyleBackColor = true;
             this.Ok.Click += new System.EventHandler(this.Ok_Click);
             // 

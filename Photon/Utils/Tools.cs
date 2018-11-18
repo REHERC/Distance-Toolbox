@@ -1,4 +1,5 @@
-﻿using Photon.GUI.ToolPage;
+﻿using Photon.Forms;
+using Photon.GUI.ToolPage;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -29,6 +30,13 @@ namespace Photon
             var Principle = new WindowsPrincipal(WindowsIdentity.GetCurrent());
             return Principle.IsInRole(WindowsBuiltInRole.Administrator);
         }
+
+        public static string GetWindowPositionArgs()
+        {
+            MainForm form = Application.OpenForms["MainForm"] as MainForm;
+            return $"--setwindow --window-x {form.Left} --window-y {form.Top} --window-w {form.Width} --window-h {form.Height} --window-s {(int)form.WindowState}";
+        }
+
 
         public static bool Elevate(string arguments)
         {

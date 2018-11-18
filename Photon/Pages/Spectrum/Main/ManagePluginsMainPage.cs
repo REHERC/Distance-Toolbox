@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using Photon.User_Controls;
 
@@ -9,6 +10,7 @@ namespace Photon.Pages.Spectrum
         public ManagePluginsMainPage()
         {
             InitializeComponent();
+            LoadPluginList();
         }
 
         private void Cancel_Click(object sender, System.EventArgs e)
@@ -36,17 +38,25 @@ namespace Photon.Pages.Spectrum
 
         private void LoadPluginList()
         {
+            NoPluginsPanel.Visible = true;
             PluginList.Controls.Clear();
-            for (int i = 0; i < 16; i++)
-            {
-                SpectrumPluginListItem Item = new SpectrumPluginListItem
+
+            string pluginsdir = $@"{Globals.Settings.General.Data.GameDir}\Distance_Data\Spectrum\Plugins";
+            
+            foreach (string plugin in Directory.GetDirectories(pluginsdir)) {
+                SpectrumPluginListItem Item = new SpectrumPluginListItem(plugin)
                 {
-                    PluginName = $"Plugin #{i}",
                     Dock = DockStyle.Top
                 };
 
-                PluginList.Controls.Add(Item);
+                if (!Item.IsValid())
+                {
+                    continue;
+                }
 
+                NoPluginsPanel.Visible = false;
+                
+                PluginList.Controls.Add(Item);
                 Item.BringToFront();
                 
                 Panel Separator = new Panel
@@ -54,9 +64,7 @@ namespace Photon.Pages.Spectrum
                     Height = 8,
                     Dock = DockStyle.Top
                 };
-
                 PluginList.Controls.Add(Separator);
-
                 Separator.BringToFront();
             }
         }

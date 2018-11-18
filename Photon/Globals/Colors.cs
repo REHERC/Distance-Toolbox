@@ -5,7 +5,8 @@ namespace Photon.Globals
 {
     public static class Colors
     {
-        public static Color PRIMARY_Main = Color.FromArgb(255, 255, 160, 0);
+        //public static Color PRIMARY_Main = Color.FromArgb(255, 255, 160, 0);
+        public static Color PRIMARY_Main = Color.FromArgb(255, 36, 109, 145);
 
         public static Color CONTROL_Lighter = Color.White;
         public static Color CONTROL_Light = Color.FromArgb(255, 250, 250, 250);

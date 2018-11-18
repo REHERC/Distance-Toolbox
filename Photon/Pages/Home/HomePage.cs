@@ -74,7 +74,7 @@ namespace Photon.Pages.Home
         {
             if (!Tools.IsRunAsAdmin())
             {
-                if (Tools.Elevate("--source pages:backups.main --nosplash"))
+                if (Tools.Elevate("--source pages:backups.main --nosplash " + Tools.GetWindowPositionArgs()))
                 {
                     Application.Exit();
                 }

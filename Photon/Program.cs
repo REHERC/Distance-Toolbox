@@ -20,13 +20,13 @@ namespace Photon
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-
             
             Parser.Default.ParseArguments<CommandLineArguments>(args).WithParsed<CommandLineArguments>(value => {
                 Arguments = value;
             });
             
+            //MessageBox.Show(Parser.Default.FormatCommandLine<CommandLineArguments>(Arguments));
+
             if (!Arguments.Splash)
             {
                 Thread SplashScreenThread = new Thread(new ThreadStart(delegate
@@ -64,6 +64,16 @@ namespace Photon
             
             form.BringToFront();
             form.Activate();
+
+            if (Arguments.Setwindow)
+            {
+                form.Left = Arguments.Position_x;
+                form.Top = Arguments.Position_y;
+                form.Width = Arguments.Size_w;
+                form.Height = Arguments.Size_h;
+
+                form.WindowState = (FormWindowState)Arguments.Window_s;
+            }
         }
     }
 }

@@ -59,9 +59,9 @@ namespace Photon.Pages.Error
 
         private void Ok_Click(object sender, System.EventArgs e)
         {
-            Globals.Variables.MainForm.AddPageForce(Redirect.GetPage());
             if (Redirect != null)
             {
+                Globals.Variables.MainForm.AddPageForce(Redirect.GetPage());
                 Globals.Variables.MainForm.SetPage(Redirect.GetPage().PageName);
                 Globals.Variables.MainForm.RemovePage(this.PageName);
             }
@@ -71,6 +71,11 @@ namespace Photon.Pages.Error
         {
             Globals.Variables.MainForm.SetPage("pages:home");
             Globals.Variables.MainForm.RemovePage(this.PageName);
+        }
+
+        private void ErrorMessageContainer_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
+        {
+
         }
     }
 }

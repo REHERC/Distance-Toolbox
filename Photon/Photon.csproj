@@ -296,7 +296,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Pages\Spectrum\Configure\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Logo.ico" />
     <Content Include="Resources\Logo.ico" />

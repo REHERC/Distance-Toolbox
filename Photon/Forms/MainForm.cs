@@ -18,6 +18,7 @@ namespace Photon.Forms
             InitializeComponent();
             Globals.Colors.OnColorsUpdated += new Action(delegate () {
                 this.Invalidate();
+                UpdateGUIColors();
             });
         }
 
@@ -43,6 +44,11 @@ namespace Photon.Forms
             MenuBarSeparator.BackColor = Globals.Colors.PRIMARY_Main;
             PageNameBackground.BackColor = Globals.Colors.PRIMARY_Main;
             PageNameBackground.ForeColor = Globals.Colors.CONTROL_Light;
+
+            foreach (ToolPage page in Pages)
+            {
+                page.Reload();
+            }
         }
         
         private void BugReportBtn_Click(object sender, EventArgs e)

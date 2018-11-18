@@ -34,19 +34,24 @@ namespace Photon.Pages.Settings
             this.MainPanel = new System.Windows.Forms.Panel();
             this.OptionsLayout = new Photon.GUI.PhotonPanel();
             this.OptionsTable = new System.Windows.Forms.TableLayoutPanel();
+            this.InterfaceColorName = new Photon.GUI.PhotonLabel();
             this.GamePathName = new Photon.GUI.PhotonLabel();
             this.GamePathContainer = new System.Windows.Forms.Panel();
             this.GameDirBox = new Photon.GUI.PhotonTextBox();
             this.GamePathBtn = new Photon.GUI.PhotonButtonSimple();
+            this.InterfaceColorContainer = new System.Windows.Forms.Panel();
+            this.InterfaceColorPick = new System.Windows.Forms.Panel();
             this.BottomPanel = new System.Windows.Forms.Panel();
             this.ActionButtonsFlow = new System.Windows.Forms.FlowLayoutPanel();
             this.Cancel = new Photon.GUI.PhotonTrayButton();
             this.Ok = new Photon.GUI.PhotonTrayButton();
+            this.ApplyBtn = new Photon.GUI.PhotonTrayButton();
             this.BottomSeparator = new System.Windows.Forms.Panel();
             this.MainPanel.SuspendLayout();
             this.OptionsLayout.SuspendLayout();
             this.OptionsTable.SuspendLayout();
             this.GamePathContainer.SuspendLayout();
+            this.InterfaceColorContainer.SuspendLayout();
             this.BottomPanel.SuspendLayout();
             this.ActionButtonsFlow.SuspendLayout();
             this.SuspendLayout();
@@ -64,29 +69,48 @@ namespace Photon.Pages.Settings
             // OptionsLayout
             // 
             this.OptionsLayout.AutoSize = true;
-            this.OptionsLayout.BackColor = System.Drawing.Color.Red;
+            this.OptionsLayout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.OptionsLayout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(109)))), ((int)(((byte)(145)))));
             this.OptionsLayout.Controls.Add(this.OptionsTable);
             this.OptionsLayout.Dock = System.Windows.Forms.DockStyle.Top;
             this.OptionsLayout.Location = new System.Drawing.Point(16, 16);
             this.OptionsLayout.Name = "OptionsLayout";
-            this.OptionsLayout.Size = new System.Drawing.Size(608, 19);
+            this.OptionsLayout.Size = new System.Drawing.Size(608, 39);
             this.OptionsLayout.TabIndex = 2;
             // 
             // OptionsTable
             // 
+            this.OptionsTable.AutoSize = true;
+            this.OptionsTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.OptionsTable.ColumnCount = 2;
             this.OptionsTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.OptionsTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.OptionsTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 0F));
+            this.OptionsTable.Controls.Add(this.InterfaceColorName, 0, 1);
             this.OptionsTable.Controls.Add(this.GamePathName, 0, 0);
             this.OptionsTable.Controls.Add(this.GamePathContainer, 1, 0);
+            this.OptionsTable.Controls.Add(this.InterfaceColorContainer, 1, 1);
             this.OptionsTable.Dock = System.Windows.Forms.DockStyle.Top;
             this.OptionsTable.Location = new System.Drawing.Point(0, 0);
             this.OptionsTable.Name = "OptionsTable";
             this.OptionsTable.RowCount = 2;
             this.OptionsTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.OptionsTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.OptionsTable.Size = new System.Drawing.Size(608, 19);
+            this.OptionsTable.Size = new System.Drawing.Size(608, 39);
             this.OptionsTable.TabIndex = 0;
+            this.OptionsTable.Paint += new System.Windows.Forms.PaintEventHandler(this.OptionsTable_Paint);
+            // 
+            // InterfaceColorName
+            // 
+            this.InterfaceColorName.AutoSize = true;
+            this.InterfaceColorName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.InterfaceColorName.Font = new System.Drawing.Font("Arial Black", 10F, System.Drawing.FontStyle.Bold);
+            this.InterfaceColorName.ForeColor = System.Drawing.Color.White;
+            this.InterfaceColorName.Location = new System.Drawing.Point(3, 19);
+            this.InterfaceColorName.Name = "InterfaceColorName";
+            this.InterfaceColorName.Size = new System.Drawing.Size(136, 20);
+            this.InterfaceColorName.TabIndex = 2;
+            this.InterfaceColorName.Text = "Interface color :";
+            this.InterfaceColorName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // GamePathName
             // 
@@ -120,7 +144,7 @@ namespace Photon.Pages.Settings
             this.GameDirBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.GameDirBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GameDirBox.Font = new System.Drawing.Font("Arial Black", 10F);
-            this.GameDirBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(160)))), ((int)(((byte)(0)))));
+            this.GameDirBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(109)))), ((int)(((byte)(145)))));
             this.GameDirBox.Location = new System.Drawing.Point(8, 0);
             this.GameDirBox.Name = "GameDirBox";
             this.GameDirBox.ReadOnly = true;
@@ -144,6 +168,29 @@ namespace Photon.Pages.Settings
             this.GamePathBtn.UseVisualStyleBackColor = true;
             this.GamePathBtn.Click += new System.EventHandler(this.GamePathBtn_Click);
             // 
+            // InterfaceColorContainer
+            // 
+            this.InterfaceColorContainer.BackColor = System.Drawing.Color.White;
+            this.InterfaceColorContainer.Controls.Add(this.InterfaceColorPick);
+            this.InterfaceColorContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.InterfaceColorContainer.Location = new System.Drawing.Point(150, 19);
+            this.InterfaceColorContainer.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.InterfaceColorContainer.Name = "InterfaceColorContainer";
+            this.InterfaceColorContainer.Padding = new System.Windows.Forms.Padding(4);
+            this.InterfaceColorContainer.Size = new System.Drawing.Size(450, 20);
+            this.InterfaceColorContainer.TabIndex = 3;
+            // 
+            // InterfaceColorPick
+            // 
+            this.InterfaceColorPick.BackColor = System.Drawing.Color.White;
+            this.InterfaceColorPick.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.InterfaceColorPick.Location = new System.Drawing.Point(4, 4);
+            this.InterfaceColorPick.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.InterfaceColorPick.Name = "InterfaceColorPick";
+            this.InterfaceColorPick.Size = new System.Drawing.Size(442, 12);
+            this.InterfaceColorPick.TabIndex = 4;
+            this.InterfaceColorPick.Click += new System.EventHandler(this.InterfaceColorPick_Click);
+            // 
             // BottomPanel
             // 
             this.BottomPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -159,6 +206,7 @@ namespace Photon.Pages.Settings
             // 
             this.ActionButtonsFlow.Controls.Add(this.Cancel);
             this.ActionButtonsFlow.Controls.Add(this.Ok);
+            this.ActionButtonsFlow.Controls.Add(this.ApplyBtn);
             this.ActionButtonsFlow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ActionButtonsFlow.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.ActionButtonsFlow.Location = new System.Drawing.Point(16, 16);
@@ -194,6 +242,20 @@ namespace Photon.Pages.Settings
             this.Ok.UseVisualStyleBackColor = true;
             this.Ok.Click += new System.EventHandler(this.Ok_Click);
             // 
+            // ApplyBtn
+            // 
+            this.ApplyBtn.AutoSize = true;
+            this.ApplyBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ApplyBtn.Font = new System.Drawing.Font("Arial Black", 10F);
+            this.ApplyBtn.Location = new System.Drawing.Point(169, 0);
+            this.ApplyBtn.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ApplyBtn.Name = "ApplyBtn";
+            this.ApplyBtn.Size = new System.Drawing.Size(163, 32);
+            this.ApplyBtn.TabIndex = 2;
+            this.ApplyBtn.Text = "Apply";
+            this.ApplyBtn.UseVisualStyleBackColor = true;
+            this.ApplyBtn.Click += new System.EventHandler(this.Apply_Click);
+            // 
             // BottomSeparator
             // 
             this.BottomSeparator.BackColor = System.Drawing.Color.Silver;
@@ -219,10 +281,12 @@ namespace Photon.Pages.Settings
             this.MainPanel.ResumeLayout(false);
             this.MainPanel.PerformLayout();
             this.OptionsLayout.ResumeLayout(false);
+            this.OptionsLayout.PerformLayout();
             this.OptionsTable.ResumeLayout(false);
             this.OptionsTable.PerformLayout();
             this.GamePathContainer.ResumeLayout(false);
             this.GamePathContainer.PerformLayout();
+            this.InterfaceColorContainer.ResumeLayout(false);
             this.BottomPanel.ResumeLayout(false);
             this.ActionButtonsFlow.ResumeLayout(false);
             this.ActionButtonsFlow.PerformLayout();
@@ -244,5 +308,9 @@ namespace Photon.Pages.Settings
         private GUI.PhotonTextBox GameDirBox;
         private GUI.PhotonTrayButton Ok;
         private System.Windows.Forms.FlowLayoutPanel ActionButtonsFlow;
+        private GUI.PhotonLabel InterfaceColorName;
+        private System.Windows.Forms.Panel InterfaceColorContainer;
+        private System.Windows.Forms.Panel InterfaceColorPick;
+        private GUI.PhotonTrayButton ApplyBtn;
     }
 }

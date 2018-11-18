@@ -10,6 +10,7 @@ namespace Photon.Globals
         {
             General = new Serializer<AppSettings>(SerializerType.Xml,"Settings",true);
             General.Save();
+            Globals.Colors.PRIMARY_Main = ColorExtensions.Deserialize(General.Data.AppColor);
         }
         public static Serializer<AppSettings> General;
     }

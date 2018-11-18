@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
+using System.Windows.Forms;
 using Photon.Serialization.Data;
 
 namespace Photon.Pages.Settings
@@ -19,6 +21,7 @@ namespace Photon.Pages.Settings
         {
             BottomPanel.BackColor = Globals.Colors.CONTROL_Dark;
             BottomSeparator.BackColor = Globals.Colors.PRIMARY_Main;
+            InterfaceColorPick.BackColor = Globals.Colors.PRIMARY_Main;
         }
         
         private void GamePathBtn_Click(object sender, System.EventArgs e)
@@ -46,14 +49,50 @@ namespace Photon.Pages.Settings
 
         private void Ok_Click(object sender, System.EventArgs e)
         {
+            Apply();
+            Close();
+        }
+
+        private void Apply()
+        {
             Globals.Settings.General.Data = GeneralSettings;
             Globals.Settings.General.Save();
-            Close();
+            
+            Globals.Colors.PRIMARY_Main = ColorExtensions.Deserialize(GeneralSettings.AppColor);
+            Globals.Colors.UpdateColors();
         }
 
         private void Close() {
             Globals.Settings.General.Load();
             Globals.Variables.MainForm.SetPage("pages:home");
+        }
+
+        private void InterfaceColorPick_Click(object sender, System.EventArgs e)
+        {
+            ColorDialog Colorpicker = new ColorDialog
+            {
+                Color = Globals.Colors.PRIMARY_Main,
+                AnyColor = true,
+                AllowFullOpen = true
+            };
+
+            if (Colorpicker.ShowDialog() == DialogResult.OK)
+            {
+                InterfaceColorPick.BackColor = Colorpicker.Color;
+                GeneralSettings.AppColor = Colorpicker.Color.Serialize();
+            }
+
+            Colorpicker.Dispose();
+        }
+
+        private void Apply_Click(object sender, System.EventArgs e)
+        {
+            Apply();
+        }
+
+        private void OptionsTable_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

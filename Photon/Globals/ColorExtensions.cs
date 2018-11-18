@@ -53,5 +53,27 @@ namespace Photon
                 c.B
             );
         }
+
+        public static string Serialize(this Color c)
+        {
+            return $@"{c.A};{c.R};{c.G};{c.B}";
+        }
+
+        public static Color Deserialize(string serial)
+        {
+            int a;
+            int r;
+            int g;
+            int b;
+
+            string[] splits = serial.Split(';');
+
+            a = int.Parse(splits[0]);
+            r = int.Parse(splits[1]);
+            g = int.Parse(splits[2]);
+            b = int.Parse(splits[3]);
+
+            return Color.FromArgb(a,r,g,b);
+        }
     }
 }

@@ -2,31 +2,43 @@
 using System.Threading;
 using System.Windows.Forms;
 using Photon.Forms;
+using CommandLine;
+using Photon.GUI.ToolPage;
 
 namespace Photon
 {
     static class Program
     {
         private static SplashForm SplashScreen;
-
-
+        public static CommandLineArguments Arguments;
+        
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Thread SplashScreenThread = new Thread(new ThreadStart(delegate
-            {
-                SplashScreen = new SplashForm();
-                Application.Run(SplashScreen);
-            }));
 
-            SplashScreenThread.SetApartmentState(ApartmentState.STA);
-            SplashScreenThread.Start();
+            
+            Parser.Default.ParseArguments<CommandLineArguments>(args).WithParsed<CommandLineArguments>(value => {
+                Arguments = value;
+            });
+            
+            if (!Arguments.Splash)
+            {
+                Thread SplashScreenThread = new Thread(new ThreadStart(delegate
+                {
+                    SplashScreen = new SplashForm();
+                    Application.Run(SplashScreen);
+                }));
+                
+                SplashScreenThread.SetApartmentState(ApartmentState.STA);
+                SplashScreenThread.Start();
+            }
+
 
             Globals.Variables.MainForm = new MainForm();
             Globals.Variables.MainForm.Shown += MainFormLoad;
@@ -42,17 +54,16 @@ namespace Photon
 
         static void MainFormLoad(object sender, EventArgs e)
         {
-            if (SplashScreen == null) return;
-
-            SplashScreen.Invoke(new Action(SplashScreen.Close));
-            SplashScreen.Dispose();
-            SplashScreen = null;
+            if (SplashScreen != null) {
+                SplashScreen.Invoke(new Action(SplashScreen.Close));
+                SplashScreen.Dispose();
+                SplashScreen = null;
+            }
 
             MainForm form = (MainForm)sender;
-
-            form.Select();
-            form.Focus();
+            
             form.BringToFront();
+            form.Activate();
         }
     }
 }

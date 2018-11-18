@@ -27,6 +27,13 @@ namespace Photon.Forms
             AddPageSafe(new HomePage());
             SetPage("pages:home");
             AddPageSafe(new SettingsPage());
+
+            if (Program.Arguments.Source != "pages:home")
+            {
+                ToolPage redirect = Tools.PageFromType(Program.Arguments.Source);
+                AddPageSafe(redirect);
+                SetPage(redirect.PageName);
+            }
         }
         
         private void UpdateGUIColors()
@@ -115,7 +122,7 @@ namespace Photon.Forms
                 {
                     return new List<ToolPage>(from page in Pages where page.PageName == name select page).Last();
                 }
-                catch (Exception NullRef)
+                catch (Exception Greg)
                 {
                     return new ErrorPage("Internal Error", "The page you requested for couldn't be loaded.", "If you see this message, please report it using the \"Bug report\" button on the top-right corner.");
                 }

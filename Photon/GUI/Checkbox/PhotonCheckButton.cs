@@ -142,9 +142,11 @@ namespace Photon.GUI
 
             e.Graphics.FillRectangle(CheckBrush, checkfill);
 
-            StringFormat sf = new StringFormat();
-            sf.Alignment = StringAlignment.Center;
-            sf.LineAlignment = StringAlignment.Center;
+            StringFormat sf = new StringFormat
+            {
+                Alignment = StringAlignment.Center,
+                LineAlignment = StringAlignment.Center
+            };
 
             Font font = new Font(this.Font, FontStyle.Bold);
             

@@ -18,9 +18,11 @@ namespace Photon.GUI
             Rectangle bounds = new Rectangle(0, 0, this.Width, this.Height);
             Rectangle safebounds = bounds.Padding((int)Math.Round(this.Font.Size * 1.5), 0, 0, 0);
 
-            StringFormat sf = new StringFormat();
-            sf.LineAlignment = StringAlignment.Center;
-            sf.Alignment = StringAlignment.Near;
+            StringFormat sf = new StringFormat
+            {
+                LineAlignment = StringAlignment.Center,
+                Alignment = StringAlignment.Near
+            };
 
             e.Graphics.Clear(BackColor);
 

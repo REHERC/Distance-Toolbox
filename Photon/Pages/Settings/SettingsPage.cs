@@ -23,10 +23,12 @@ namespace Photon.Pages.Settings
         
         private void GamePathBtn_Click(object sender, System.EventArgs e)
         {
-            Microsoft.Win32.OpenFileDialog Dialog = new Microsoft.Win32.OpenFileDialog();
-            Dialog.FileName = "Distance.exe"; // Default file name
-            Dialog.DefaultExt = ".exe"; // Default file extension
-            Dialog.Filter = "Distance.exe|Distance.exe"; // Filter files by extension
+            Microsoft.Win32.OpenFileDialog Dialog = new Microsoft.Win32.OpenFileDialog
+            {
+                FileName = "Distance.exe", // Default file name
+                DefaultExt = ".exe", // Default file extension
+                Filter = "Distance.exe|Distance.exe" // Filter files by extension
+            };
             if (Dialog.ShowDialog() == true)
             {
                 string file = Dialog.FileName;

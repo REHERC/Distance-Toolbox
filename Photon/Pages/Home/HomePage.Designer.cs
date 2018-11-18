@@ -33,6 +33,7 @@ namespace Photon.Pages.Home
         {
             this.MainPanel = new System.Windows.Forms.Panel();
             this.ToolsPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.BackupBtn = new Photon.GUI.PhotonButton();
             this.ConfigureGameBtn = new Photon.GUI.PhotonButton();
             this.ManagePlaylistsBtn = new Photon.GUI.PhotonButton();
             this.OnlineServersBtn = new Photon.GUI.PhotonButton();
@@ -41,7 +42,6 @@ namespace Photon.Pages.Home
             this.SettingsBtn = new Photon.GUI.PhotonButton();
             this.SpectrumPluginsBtn = new Photon.GUI.PhotonButton();
             this.SocialMediaBtn = new Photon.GUI.PhotonButton();
-            this.BackupBtn = new Photon.GUI.PhotonButton();
             this.MainPanel.SuspendLayout();
             this.ToolsPanel.SuspendLayout();
             this.SuspendLayout();
@@ -85,9 +85,23 @@ namespace Photon.Pages.Home
             this.ToolsPanel.Size = new System.Drawing.Size(624, 435);
             this.ToolsPanel.TabIndex = 2;
             // 
+            // BackupBtn
+            // 
+            this.BackupBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BackupBtn.Font = new System.Drawing.Font("Arial Black", 10F);
+            this.BackupBtn.Location = new System.Drawing.Point(423, 298);
+            this.BackupBtn.Margin = new System.Windows.Forms.Padding(8);
+            this.BackupBtn.Name = "BackupBtn";
+            this.BackupBtn.Size = new System.Drawing.Size(193, 129);
+            this.BackupBtn.TabIndex = 15;
+            this.BackupBtn.Text = "Backup User Files";
+            this.BackupBtn.UseVisualStyleBackColor = true;
+            this.BackupBtn.Click += new System.EventHandler(this.BackupBtn_Click);
+            // 
             // ConfigureGameBtn
             // 
             this.ConfigureGameBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ConfigureGameBtn.Enabled = false;
             this.ConfigureGameBtn.Font = new System.Drawing.Font("Arial Black", 10F);
             this.ConfigureGameBtn.Location = new System.Drawing.Point(215, 153);
             this.ConfigureGameBtn.Margin = new System.Windows.Forms.Padding(8);
@@ -100,6 +114,7 @@ namespace Photon.Pages.Home
             // ManagePlaylistsBtn
             // 
             this.ManagePlaylistsBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ManagePlaylistsBtn.Enabled = false;
             this.ManagePlaylistsBtn.Font = new System.Drawing.Font("Arial Black", 10F);
             this.ManagePlaylistsBtn.Location = new System.Drawing.Point(423, 153);
             this.ManagePlaylistsBtn.Margin = new System.Windows.Forms.Padding(8);
@@ -138,6 +153,7 @@ namespace Photon.Pages.Home
             // SpectrumLogsBtn
             // 
             this.SpectrumLogsBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SpectrumLogsBtn.Enabled = false;
             this.SpectrumLogsBtn.Font = new System.Drawing.Font("Arial Black", 10F);
             this.SpectrumLogsBtn.Location = new System.Drawing.Point(423, 8);
             this.SpectrumLogsBtn.Margin = new System.Windows.Forms.Padding(8);
@@ -185,18 +201,6 @@ namespace Photon.Pages.Home
             this.SocialMediaBtn.TabIndex = 14;
             this.SocialMediaBtn.Text = "Refract\'s Social Media";
             this.SocialMediaBtn.UseVisualStyleBackColor = true;
-            // 
-            // BackupBtn
-            // 
-            this.BackupBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BackupBtn.Font = new System.Drawing.Font("Arial Black", 10F);
-            this.BackupBtn.Location = new System.Drawing.Point(423, 298);
-            this.BackupBtn.Margin = new System.Windows.Forms.Padding(8);
-            this.BackupBtn.Name = "BackupBtn";
-            this.BackupBtn.Size = new System.Drawing.Size(193, 129);
-            this.BackupBtn.TabIndex = 15;
-            this.BackupBtn.Text = "Backup User Files";
-            this.BackupBtn.UseVisualStyleBackColor = true;
             // 
             // HomePage
             // 

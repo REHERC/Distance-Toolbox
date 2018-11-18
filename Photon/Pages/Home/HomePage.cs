@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Security.Permissions;
+using System.Windows.Forms;
 using Photon.GUI.ToolPage;
+using Photon.Pages.Backups;
 using Photon.Pages.Error;
 using Photon.Pages.Settings;
 using Photon.Pages.Spectrum;
@@ -65,6 +68,26 @@ namespace Photon.Pages.Home
         {
             SettingsBtn.Select();
             SettingsBtn.Focus();
+        }
+
+        private void BackupBtn_Click(object sender, EventArgs e)
+        {
+            if (!Tools.IsRunAsAdmin())
+            {
+                if (Tools.Elevate("--source pages:backups.main --nosplash"))
+                {
+                    Application.Exit();
+                }
+                else
+                {
+                    return;
+                }
+            }
+            else
+            {
+                Globals.Variables.MainForm.AddPageSafe(new BackupsMainPage());
+                Globals.Variables.MainForm.SetPage("pages:backups.main");
+            }
         }
     }
 }

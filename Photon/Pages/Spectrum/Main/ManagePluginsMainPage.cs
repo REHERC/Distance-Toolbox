@@ -39,21 +39,21 @@ namespace Photon.Pages.Spectrum
             PluginList.Controls.Clear();
             for (int i = 0; i < 16; i++)
             {
-                SpectrumPluginListItem Item = new SpectrumPluginListItem();
-
-                Item.PluginName = $"Plugin #{i}";
-                Item.Dock = DockStyle.Top;
+                SpectrumPluginListItem Item = new SpectrumPluginListItem
+                {
+                    PluginName = $"Plugin #{i}",
+                    Dock = DockStyle.Top
+                };
 
                 PluginList.Controls.Add(Item);
 
                 Item.BringToFront();
-
-
-
-                Panel Separator = new Panel();
                 
-                Separator.Height = 8;
-                Separator.Dock = DockStyle.Top;
+                Panel Separator = new Panel
+                {
+                    Height = 8,
+                    Dock = DockStyle.Top
+                };
 
                 PluginList.Controls.Add(Separator);
 

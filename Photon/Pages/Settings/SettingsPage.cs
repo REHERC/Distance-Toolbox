@@ -73,7 +73,21 @@ namespace Photon.Pages.Settings
             Globals.Variables.MainForm.SetPage("pages:home");
         }
 
-        private void InterfaceColorPick_Click(object sender, System.EventArgs e)
+        private void Apply_Click(object sender, System.EventArgs e)
+        {
+            Apply();
+        }
+
+        private void ResetSettings_Click(object sender, System.EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to reset all settings to their default value ?\nThis will restart the application ...", "Reset settings",MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                File.Delete($@"{Application.StartupPath}\Settings.xml");
+                Application.Restart();
+            }
+        }
+
+        private void InterfaceColorBtn_Click(object sender, System.EventArgs e)
         {
             ColorDialog Colorpicker = new ColorDialog
             {
@@ -89,20 +103,6 @@ namespace Photon.Pages.Settings
             }
 
             Colorpicker.Dispose();
-        }
-
-        private void Apply_Click(object sender, System.EventArgs e)
-        {
-            Apply();
-        }
-
-        private void ResetSettings_Click(object sender, System.EventArgs e)
-        {
-            if (MessageBox.Show("Are you sure you want to reset all settings to their default value ?\nThis will restart the application ...", "Reset settings",MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                File.Delete($@"{Application.StartupPath}\Settings.xml");
-                Application.Restart();
-            }
         }
     }
 }

@@ -49,6 +49,8 @@ namespace Photon.Pages.Settings
             this.Ok = new Photon.GUI.PhotonTrayButton();
             this.ApplyBtn = new Photon.GUI.PhotonTrayButton();
             this.BottomSeparator = new System.Windows.Forms.Panel();
+            this.InterfaceColorBtn = new Photon.GUI.PhotonButtonSimple();
+            this.InterfaceColorPreview = new System.Windows.Forms.Panel();
             this.MainPanel.SuspendLayout();
             this.OptionsLayout.SuspendLayout();
             this.OptionsTable.SuspendLayout();
@@ -57,6 +59,7 @@ namespace Photon.Pages.Settings
             this.ResetSettingsContainer.SuspendLayout();
             this.BottomPanel.SuspendLayout();
             this.ActionButtonsFlow.SuspendLayout();
+            this.InterfaceColorPreview.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainPanel
@@ -175,12 +178,12 @@ namespace Photon.Pages.Settings
             // InterfaceColorContainer
             // 
             this.InterfaceColorContainer.BackColor = System.Drawing.Color.White;
-            this.InterfaceColorContainer.Controls.Add(this.InterfaceColorPick);
+            this.InterfaceColorContainer.Controls.Add(this.InterfaceColorPreview);
+            this.InterfaceColorContainer.Controls.Add(this.InterfaceColorBtn);
             this.InterfaceColorContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.InterfaceColorContainer.Location = new System.Drawing.Point(150, 19);
             this.InterfaceColorContainer.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.InterfaceColorContainer.Name = "InterfaceColorContainer";
-            this.InterfaceColorContainer.Padding = new System.Windows.Forms.Padding(4);
             this.InterfaceColorContainer.Size = new System.Drawing.Size(450, 20);
             this.InterfaceColorContainer.TabIndex = 3;
             // 
@@ -191,9 +194,8 @@ namespace Photon.Pages.Settings
             this.InterfaceColorPick.Location = new System.Drawing.Point(4, 4);
             this.InterfaceColorPick.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.InterfaceColorPick.Name = "InterfaceColorPick";
-            this.InterfaceColorPick.Size = new System.Drawing.Size(442, 12);
+            this.InterfaceColorPick.Size = new System.Drawing.Size(408, 12);
             this.InterfaceColorPick.TabIndex = 4;
-            this.InterfaceColorPick.Click += new System.EventHandler(this.InterfaceColorPick_Click);
             // 
             // ResetSettingsContainer
             // 
@@ -299,6 +301,31 @@ namespace Photon.Pages.Settings
             this.BottomSeparator.Size = new System.Drawing.Size(640, 1);
             this.BottomSeparator.TabIndex = 4;
             // 
+            // InterfaceColorBtn
+            // 
+            this.InterfaceColorBtn.AutoSize = true;
+            this.InterfaceColorBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.InterfaceColorBtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.InterfaceColorBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.InterfaceColorBtn.Font = new System.Drawing.Font("Arial Black", 10F, System.Drawing.FontStyle.Bold);
+            this.InterfaceColorBtn.Location = new System.Drawing.Point(416, 0);
+            this.InterfaceColorBtn.Name = "InterfaceColorBtn";
+            this.InterfaceColorBtn.Size = new System.Drawing.Size(34, 20);
+            this.InterfaceColorBtn.TabIndex = 2;
+            this.InterfaceColorBtn.Text = "...";
+            this.InterfaceColorBtn.UseVisualStyleBackColor = true;
+            this.InterfaceColorBtn.Click += new System.EventHandler(this.InterfaceColorBtn_Click);
+            // 
+            // InterfaceColorPreview
+            // 
+            this.InterfaceColorPreview.Controls.Add(this.InterfaceColorPick);
+            this.InterfaceColorPreview.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.InterfaceColorPreview.Location = new System.Drawing.Point(0, 0);
+            this.InterfaceColorPreview.Name = "InterfaceColorPreview";
+            this.InterfaceColorPreview.Padding = new System.Windows.Forms.Padding(4);
+            this.InterfaceColorPreview.Size = new System.Drawing.Size(416, 20);
+            this.InterfaceColorPreview.TabIndex = 3;
+            // 
             // SettingsPage
             // 
             this.AutoScroll = true;
@@ -319,11 +346,13 @@ namespace Photon.Pages.Settings
             this.GamePathContainer.ResumeLayout(false);
             this.GamePathContainer.PerformLayout();
             this.InterfaceColorContainer.ResumeLayout(false);
+            this.InterfaceColorContainer.PerformLayout();
             this.ResetSettingsContainer.ResumeLayout(false);
             this.ResetSettingsContainer.PerformLayout();
             this.BottomPanel.ResumeLayout(false);
             this.ActionButtonsFlow.ResumeLayout(false);
             this.ActionButtonsFlow.PerformLayout();
+            this.InterfaceColorPreview.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -348,5 +377,7 @@ namespace Photon.Pages.Settings
         private GUI.PhotonTrayButton ApplyBtn;
         private System.Windows.Forms.Panel ResetSettingsContainer;
         private GUI.PhotonButtonSimple ResetSettings;
+        private System.Windows.Forms.Panel InterfaceColorPreview;
+        private GUI.PhotonButtonSimple InterfaceColorBtn;
     }
 }

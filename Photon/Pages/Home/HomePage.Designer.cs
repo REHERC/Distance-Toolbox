@@ -311,12 +311,12 @@ namespace Photon.Pages.Home
             this.SettingsBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.SettingsBtn.Dock = System.Windows.Forms.DockStyle.Right;
             this.SettingsBtn.Font = new System.Drawing.Font("Arial Black", 10F);
-            this.SettingsBtn.Location = new System.Drawing.Point(558, 0);
+            this.SettingsBtn.Location = new System.Drawing.Point(515, 0);
             this.SettingsBtn.Margin = new System.Windows.Forms.Padding(8);
             this.SettingsBtn.Name = "SettingsBtn";
-            this.SettingsBtn.Size = new System.Drawing.Size(82, 32);
+            this.SettingsBtn.Size = new System.Drawing.Size(125, 32);
             this.SettingsBtn.TabIndex = 3;
-            this.SettingsBtn.Text = "Settings";
+            this.SettingsBtn.Text = "Open settings";
             this.SettingsBtn.UseVisualStyleBackColor = true;
             this.SettingsBtn.Click += new System.EventHandler(this.SettingsBtn_Click);
             // 

@@ -1,5 +1,9 @@
-﻿using Photon.Serialization;
+﻿using Photon.GUI.ToolPage;
+using Photon.Pages.Spectrum;
+using Photon.Serialization;
 using Photon.Serialization.Data;
+using System;
+using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
 
@@ -62,6 +66,7 @@ namespace Photon.User_Controls
             Author.Text = "by " + Manifest.Data.Author;
 
             bool show = Manifest.Data.Author == "Mich";
+            show = false;
             ConfigureButton.Visible = show;
             Separator_1.Visible = show;
 
@@ -71,11 +76,28 @@ namespace Photon.User_Controls
         
         private void EnabledBox_Click(object sender, System.EventArgs e)
         {
-            if (Manifest.Data != null)
+            try
             {
-                Manifest.Data.SkipLoad = EnabledBox.Checked;
-                Manifest.Save();
+                if (Manifest.Data != null)
+                {
+                    Manifest.Data.SkipLoad = EnabledBox.Checked;
+                    Manifest.Save();
+                }
             }
+            catch (Exception Swooshyboi)
+            {
+                foreach (ToolPage page in Globals.Variables.MainForm.Pages)
+                {
+                    if (page.PageName == "pages:manageplugins.main")
+                    {
+                        ManagePluginsMainPage pluginspage = page as ManagePluginsMainPage;
+
+                        pluginspage.LoadPluginList();
+                    }
+                }
+                
+            }
+            
         }
 
         private void FinalizeComponent()
@@ -84,6 +106,11 @@ namespace Photon.User_Controls
             //this.BottomPanel.BackColor = Globals.Colors.GRAYSCALE_Light;
             this.Plugin.ForeColor = Globals.Colors.CONTROL_Lighter;
             this.Author.ForeColor = Globals.Colors.CONTROL_Lighter;
+        }
+
+        private void BrowseButton_Click(object sender, System.EventArgs e)
+        {
+            Process.Start(PluginDir);
         }
     }
 }

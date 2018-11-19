@@ -42,7 +42,7 @@ namespace Photon.Pages.Spectrum
             Reload();
         }
 
-        private void LoadPluginList()
+        public void LoadPluginList()
         {
             NoPluginsPanel.Visible = true;
             PluginList.Controls.Clear();

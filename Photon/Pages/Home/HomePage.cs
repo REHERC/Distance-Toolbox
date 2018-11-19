@@ -64,11 +64,16 @@ namespace Photon.Pages.Home
             }
         }
 
+        public override void Reload()
+        {
+            base.Reload();
+            Separator_1.BackColor = Globals.Colors.GRAYSCALE_Darker;
+        }
+
         private void HomePage_Load(object sender, EventArgs e)
         {
             Reload();
-            SettingsBtn.Select();
-            SettingsBtn.Focus();
+            FocusForScroll();
         }
 
         private void BackupBtn_Click(object sender, EventArgs e)
@@ -89,6 +94,20 @@ namespace Photon.Pages.Home
                 Globals.Variables.MainForm.AddPageSafe(new BackupsMainPage());
                 Globals.Variables.MainForm.SetPage("pages:backups.main");
             }
+        }
+
+        private void HomePage_VisibleChanged(object sender, EventArgs e)
+        {
+            if (this.Visible)
+            {
+                FocusForScroll();
+            }
+        }
+
+        void FocusForScroll()
+        {
+            ToolsPanel.Select();
+            ToolsPanel.Focus();
         }
     }
 }

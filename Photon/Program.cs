@@ -42,10 +42,7 @@ namespace Photon
 
             Globals.Variables.MainForm = new MainForm();
             Globals.Variables.MainForm.Shown += MainFormLoad;
-
-            Globals.Variables.AppPath = Application.StartupPath;
             
-
             Application.Run(Globals.Variables.MainForm);
         }
 

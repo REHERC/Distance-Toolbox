@@ -61,7 +61,10 @@ namespace Photon.User_Controls
             Plugin.Text = Manifest.Data.FriendlyName;
             Author.Text = "by " + Manifest.Data.Author;
 
-            BottomPanel.Visible = false;
+            bool show = Manifest.Data.Author == "Mich";
+            ConfigureButton.Visible = show;
+            Separator_1.Visible = show;
+
 
             EnabledBox.Checked = !Manifest.Data.SkipLoad;
         }

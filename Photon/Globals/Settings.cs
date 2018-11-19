@@ -8,6 +8,7 @@ namespace Photon.Globals
     {
         public static void Initialize()
         {
+            Globals.Variables.AppPath = Application.StartupPath;
             General = new Serializer<AppSettings>(SerializerType.Xml,"Settings",true);
             General.Save();
             Globals.Colors.PRIMARY_Main = ColorExtensions.Deserialize(General.Data.AppColor);

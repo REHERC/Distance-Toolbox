@@ -33,7 +33,9 @@
             this.MainContainer = new System.Windows.Forms.TableLayoutPanel();
             this.Author = new System.Windows.Forms.Label();
             this.Plugin = new System.Windows.Forms.Label();
+            this.Separator_1 = new System.Windows.Forms.Panel();
             this.EnabledBox = new Photon.GUI.PhotonCheckButton();
+            this.BrowseButton = new Photon.GUI.PhotonButtonSimple();
             this.ConfigureButton = new Photon.GUI.PhotonButtonSimple();
             this.BottomPanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
@@ -44,6 +46,8 @@
             // 
             this.BottomPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BottomPanel.Controls.Add(this.ConfigureButton);
+            this.BottomPanel.Controls.Add(this.Separator_1);
+            this.BottomPanel.Controls.Add(this.BrowseButton);
             this.BottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BottomPanel.Location = new System.Drawing.Point(8, 58);
             this.BottomPanel.Name = "BottomPanel";
@@ -108,6 +112,16 @@
             this.Plugin.Text = "Plugin name";
             this.Plugin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // Separator_1
+            // 
+            this.Separator_1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.Separator_1.Location = new System.Drawing.Point(161, 4);
+            this.Separator_1.MaximumSize = new System.Drawing.Size(8, 0);
+            this.Separator_1.Name = "Separator_1";
+            this.Separator_1.Size = new System.Drawing.Size(8, 24);
+            this.Separator_1.TabIndex = 2;
+            this.Separator_1.TabStop = true;
+            // 
             // EnabledBox
             // 
             this.EnabledBox.Checked = false;
@@ -121,12 +135,26 @@
             this.EnabledBox.Text = "Off";
             this.EnabledBox.Click += new System.EventHandler(this.EnabledBox_Click);
             // 
+            // BrowseButton
+            // 
+            this.BrowseButton.AutoSize = true;
+            this.BrowseButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BrowseButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BrowseButton.Font = new System.Drawing.Font("Arial Black", 10F);
+            this.BrowseButton.Location = new System.Drawing.Point(169, 4);
+            this.BrowseButton.Name = "BrowseButton";
+            this.BrowseButton.Size = new System.Drawing.Size(147, 24);
+            this.BrowseButton.TabIndex = 1;
+            this.BrowseButton.Text = "Open in explorer";
+            this.BrowseButton.UseVisualStyleBackColor = true;
+            // 
             // ConfigureButton
             // 
             this.ConfigureButton.AutoSize = true;
+            this.ConfigureButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ConfigureButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.ConfigureButton.Font = new System.Drawing.Font("Arial Black", 10F);
-            this.ConfigureButton.Location = new System.Drawing.Point(225, 4);
+            this.ConfigureButton.Location = new System.Drawing.Point(70, 4);
             this.ConfigureButton.Name = "ConfigureButton";
             this.ConfigureButton.Size = new System.Drawing.Size(91, 24);
             this.ConfigureButton.TabIndex = 0;
@@ -163,5 +191,7 @@
         private GUI.PhotonCheckButton EnabledBox;
         private System.Windows.Forms.Label Author;
         private GUI.PhotonButtonSimple ConfigureButton;
+        private GUI.PhotonButtonSimple BrowseButton;
+        private System.Windows.Forms.Panel Separator_1;
     }
 }

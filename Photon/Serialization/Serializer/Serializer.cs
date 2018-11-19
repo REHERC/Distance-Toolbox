@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 using Photon.Globals;
 
 namespace Photon.Serialization
@@ -20,7 +21,7 @@ namespace Photon.Serialization
                     DataSerializer = new JsonGenericSerializer<DATA_TYPE>();
                     break;
             }
-
+            
             if (!AbsolutePath)
             {
                 FilePath = $@"{Variables.AppPath}\{FileName}.{Type.ToString().ToLowerInvariant()}";

@@ -68,6 +68,12 @@ namespace Photon.Pages.Home
         {
             base.Reload();
             Separator_1.BackColor = Globals.Colors.GRAYSCALE_Darker;
+            GameCategoryContainer.BackColor = Globals.Colors.GRAYSCALE_Dark;
+            SpectrumCategoryContainer.BackColor = Globals.Colors.GRAYSCALE_Dark;
+            UtilitiesCategoryContainer.BackColor = Globals.Colors.GRAYSCALE_Dark;
+            OnlineCategoryContainer.BackColor = Globals.Colors.GRAYSCALE_Dark;
+
+            SettingsCategoryContainer.BackColor = Globals.Colors.GRAYSCALE_Dark;
         }
 
         private void HomePage_Load(object sender, EventArgs e)
@@ -108,6 +114,26 @@ namespace Photon.Pages.Home
         {
             ToolsPanel.Select();
             ToolsPanel.Focus();
+        }
+
+        private void GameCategory_Click(object sender, EventArgs e)
+        {
+            GameHeader.Select();
+        }
+
+        private void SpectrumCategory_Click(object sender, EventArgs e)
+        {
+            SpectrumHeader.Select();
+        }
+
+        private void UtilitiesCategory_Click(object sender, EventArgs e)
+        {
+            UtilitiesHeader.Select();
+        }
+
+        private void OnlineCategory_Click(object sender, EventArgs e)
+        {
+            OnlineHeader.Select();
         }
     }
 }

@@ -49,6 +49,15 @@ namespace Photon.Pages.Home
             this.SocialMediaBtn = new Photon.GUI.PhotonButton();
             this.SettingsBtn = new Photon.GUI.PhotonButtonSimple();
             this.TopBar = new System.Windows.Forms.Panel();
+            this.SettingsCategoryContainer = new System.Windows.Forms.Panel();
+            this.OnlineCategoryContainer = new System.Windows.Forms.Panel();
+            this.OnlineCategory = new Photon.GUI.PhotonButtonSimple();
+            this.UtilitiesCategoryContainer = new System.Windows.Forms.Panel();
+            this.UtilitiesCategory = new Photon.GUI.PhotonButtonSimple();
+            this.SpectrumCategoryContainer = new System.Windows.Forms.Panel();
+            this.SpectrumCategory = new Photon.GUI.PhotonButtonSimple();
+            this.GameCategoryContainer = new System.Windows.Forms.Panel();
+            this.GameCategory = new Photon.GUI.PhotonButtonSimple();
             this.Separator_1 = new System.Windows.Forms.Panel();
             this.MainPanel.SuspendLayout();
             this.ToolsPanel.SuspendLayout();
@@ -61,10 +70,10 @@ namespace Photon.Pages.Home
             this.MainPanel.BackColor = System.Drawing.SystemColors.Control;
             this.MainPanel.Controls.Add(this.ToolsPanel);
             this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainPanel.Location = new System.Drawing.Point(0, 32);
+            this.MainPanel.Location = new System.Drawing.Point(0, 33);
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Padding = new System.Windows.Forms.Padding(8);
-            this.MainPanel.Size = new System.Drawing.Size(640, 881);
+            this.MainPanel.Size = new System.Drawing.Size(640, 880);
             this.MainPanel.TabIndex = 3;
             // 
             // ToolsPanel
@@ -325,7 +334,16 @@ namespace Photon.Pages.Home
             this.TopBar.AutoSize = true;
             this.TopBar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.TopBar.BackColor = System.Drawing.Color.White;
+            this.TopBar.Controls.Add(this.SettingsCategoryContainer);
+            this.TopBar.Controls.Add(this.OnlineCategoryContainer);
+            this.TopBar.Controls.Add(this.OnlineCategory);
+            this.TopBar.Controls.Add(this.UtilitiesCategoryContainer);
+            this.TopBar.Controls.Add(this.UtilitiesCategory);
+            this.TopBar.Controls.Add(this.SpectrumCategoryContainer);
+            this.TopBar.Controls.Add(this.SpectrumCategory);
             this.TopBar.Controls.Add(this.SettingsBtn);
+            this.TopBar.Controls.Add(this.GameCategoryContainer);
+            this.TopBar.Controls.Add(this.GameCategory);
             this.TopBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.TopBar.Location = new System.Drawing.Point(0, 0);
             this.TopBar.MaximumSize = new System.Drawing.Size(0, 32);
@@ -333,6 +351,131 @@ namespace Photon.Pages.Home
             this.TopBar.Name = "TopBar";
             this.TopBar.Size = new System.Drawing.Size(640, 32);
             this.TopBar.TabIndex = 4;
+            // 
+            // SettingsCategoryContainer
+            // 
+            this.SettingsCategoryContainer.AutoSize = true;
+            this.SettingsCategoryContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.SettingsCategoryContainer.Dock = System.Windows.Forms.DockStyle.Right;
+            this.SettingsCategoryContainer.Location = new System.Drawing.Point(514, 0);
+            this.SettingsCategoryContainer.Margin = new System.Windows.Forms.Padding(0, 0, 1, 0);
+            this.SettingsCategoryContainer.MaximumSize = new System.Drawing.Size(1, 0);
+            this.SettingsCategoryContainer.MinimumSize = new System.Drawing.Size(1, 0);
+            this.SettingsCategoryContainer.Name = "SettingsCategoryContainer";
+            this.SettingsCategoryContainer.Size = new System.Drawing.Size(1, 32);
+            this.SettingsCategoryContainer.TabIndex = 11;
+            // 
+            // OnlineCategoryContainer
+            // 
+            this.OnlineCategoryContainer.AutoSize = true;
+            this.OnlineCategoryContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.OnlineCategoryContainer.Dock = System.Windows.Forms.DockStyle.Left;
+            this.OnlineCategoryContainer.Location = new System.Drawing.Point(376, 0);
+            this.OnlineCategoryContainer.Margin = new System.Windows.Forms.Padding(0, 0, 1, 0);
+            this.OnlineCategoryContainer.MaximumSize = new System.Drawing.Size(1, 0);
+            this.OnlineCategoryContainer.MinimumSize = new System.Drawing.Size(1, 0);
+            this.OnlineCategoryContainer.Name = "OnlineCategoryContainer";
+            this.OnlineCategoryContainer.Size = new System.Drawing.Size(1, 32);
+            this.OnlineCategoryContainer.TabIndex = 10;
+            // 
+            // OnlineCategory
+            // 
+            this.OnlineCategory.AutoSize = true;
+            this.OnlineCategory.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.OnlineCategory.Dock = System.Windows.Forms.DockStyle.Left;
+            this.OnlineCategory.Font = new System.Drawing.Font("Arial Black", 10F);
+            this.OnlineCategory.Location = new System.Drawing.Point(238, 0);
+            this.OnlineCategory.Margin = new System.Windows.Forms.Padding(8);
+            this.OnlineCategory.Name = "OnlineCategory";
+            this.OnlineCategory.Size = new System.Drawing.Size(138, 32);
+            this.OnlineCategory.TabIndex = 9;
+            this.OnlineCategory.Text = "Online services";
+            this.OnlineCategory.UseVisualStyleBackColor = true;
+            this.OnlineCategory.Click += new System.EventHandler(this.OnlineCategory_Click);
+            // 
+            // UtilitiesCategoryContainer
+            // 
+            this.UtilitiesCategoryContainer.AutoSize = true;
+            this.UtilitiesCategoryContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.UtilitiesCategoryContainer.Dock = System.Windows.Forms.DockStyle.Left;
+            this.UtilitiesCategoryContainer.Location = new System.Drawing.Point(237, 0);
+            this.UtilitiesCategoryContainer.Margin = new System.Windows.Forms.Padding(0, 0, 1, 0);
+            this.UtilitiesCategoryContainer.MaximumSize = new System.Drawing.Size(1, 0);
+            this.UtilitiesCategoryContainer.MinimumSize = new System.Drawing.Size(1, 0);
+            this.UtilitiesCategoryContainer.Name = "UtilitiesCategoryContainer";
+            this.UtilitiesCategoryContainer.Size = new System.Drawing.Size(1, 32);
+            this.UtilitiesCategoryContainer.TabIndex = 8;
+            // 
+            // UtilitiesCategory
+            // 
+            this.UtilitiesCategory.AutoSize = true;
+            this.UtilitiesCategory.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.UtilitiesCategory.Dock = System.Windows.Forms.DockStyle.Left;
+            this.UtilitiesCategory.Font = new System.Drawing.Font("Arial Black", 10F);
+            this.UtilitiesCategory.Location = new System.Drawing.Point(156, 0);
+            this.UtilitiesCategory.Margin = new System.Windows.Forms.Padding(8);
+            this.UtilitiesCategory.Name = "UtilitiesCategory";
+            this.UtilitiesCategory.Size = new System.Drawing.Size(81, 32);
+            this.UtilitiesCategory.TabIndex = 7;
+            this.UtilitiesCategory.Text = "Utilities";
+            this.UtilitiesCategory.UseVisualStyleBackColor = true;
+            this.UtilitiesCategory.Click += new System.EventHandler(this.UtilitiesCategory_Click);
+            // 
+            // SpectrumCategoryContainer
+            // 
+            this.SpectrumCategoryContainer.AutoSize = true;
+            this.SpectrumCategoryContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.SpectrumCategoryContainer.Dock = System.Windows.Forms.DockStyle.Left;
+            this.SpectrumCategoryContainer.Location = new System.Drawing.Point(155, 0);
+            this.SpectrumCategoryContainer.Margin = new System.Windows.Forms.Padding(0, 0, 1, 0);
+            this.SpectrumCategoryContainer.MaximumSize = new System.Drawing.Size(1, 0);
+            this.SpectrumCategoryContainer.MinimumSize = new System.Drawing.Size(1, 0);
+            this.SpectrumCategoryContainer.Name = "SpectrumCategoryContainer";
+            this.SpectrumCategoryContainer.Size = new System.Drawing.Size(1, 32);
+            this.SpectrumCategoryContainer.TabIndex = 6;
+            // 
+            // SpectrumCategory
+            // 
+            this.SpectrumCategory.AutoSize = true;
+            this.SpectrumCategory.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.SpectrumCategory.Dock = System.Windows.Forms.DockStyle.Left;
+            this.SpectrumCategory.Font = new System.Drawing.Font("Arial Black", 10F);
+            this.SpectrumCategory.Location = new System.Drawing.Point(64, 0);
+            this.SpectrumCategory.Margin = new System.Windows.Forms.Padding(8);
+            this.SpectrumCategory.Name = "SpectrumCategory";
+            this.SpectrumCategory.Size = new System.Drawing.Size(91, 32);
+            this.SpectrumCategory.TabIndex = 4;
+            this.SpectrumCategory.Text = "Spectrum";
+            this.SpectrumCategory.UseVisualStyleBackColor = true;
+            this.SpectrumCategory.Click += new System.EventHandler(this.SpectrumCategory_Click);
+            // 
+            // GameCategoryContainer
+            // 
+            this.GameCategoryContainer.AutoSize = true;
+            this.GameCategoryContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.GameCategoryContainer.Dock = System.Windows.Forms.DockStyle.Left;
+            this.GameCategoryContainer.Location = new System.Drawing.Point(63, 0);
+            this.GameCategoryContainer.Margin = new System.Windows.Forms.Padding(0, 0, 1, 0);
+            this.GameCategoryContainer.MaximumSize = new System.Drawing.Size(1, 0);
+            this.GameCategoryContainer.MinimumSize = new System.Drawing.Size(1, 0);
+            this.GameCategoryContainer.Name = "GameCategoryContainer";
+            this.GameCategoryContainer.Size = new System.Drawing.Size(1, 32);
+            this.GameCategoryContainer.TabIndex = 5;
+            // 
+            // GameCategory
+            // 
+            this.GameCategory.AutoSize = true;
+            this.GameCategory.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.GameCategory.Dock = System.Windows.Forms.DockStyle.Left;
+            this.GameCategory.Font = new System.Drawing.Font("Arial Black", 10F);
+            this.GameCategory.Location = new System.Drawing.Point(0, 0);
+            this.GameCategory.Margin = new System.Windows.Forms.Padding(8);
+            this.GameCategory.Name = "GameCategory";
+            this.GameCategory.Size = new System.Drawing.Size(63, 32);
+            this.GameCategory.TabIndex = 4;
+            this.GameCategory.Text = "Game";
+            this.GameCategory.UseVisualStyleBackColor = true;
+            this.GameCategory.Click += new System.EventHandler(this.GameCategory_Click);
             // 
             // Separator_1
             // 
@@ -350,8 +493,8 @@ namespace Photon.Pages.Home
             // HomePage
             // 
             this.AutoSize = true;
-            this.Controls.Add(this.Separator_1);
             this.Controls.Add(this.MainPanel);
+            this.Controls.Add(this.Separator_1);
             this.Controls.Add(this.TopBar);
             this.Name = "HomePage";
             this.PageName = "pages:home";
@@ -391,5 +534,14 @@ namespace Photon.Pages.Home
         private GUI.PhotonHeaderLabel OnlineHeader;
         private System.Windows.Forms.Panel TopBar;
         private System.Windows.Forms.Panel Separator_1;
+        private GUI.PhotonButtonSimple GameCategory;
+        private System.Windows.Forms.Panel SpectrumCategoryContainer;
+        private GUI.PhotonButtonSimple SpectrumCategory;
+        private System.Windows.Forms.Panel GameCategoryContainer;
+        private GUI.PhotonButtonSimple UtilitiesCategory;
+        private System.Windows.Forms.Panel UtilitiesCategoryContainer;
+        private GUI.PhotonButtonSimple OnlineCategory;
+        private System.Windows.Forms.Panel OnlineCategoryContainer;
+        private System.Windows.Forms.Panel SettingsCategoryContainer;
     }
 }

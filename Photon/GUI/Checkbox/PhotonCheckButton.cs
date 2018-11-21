@@ -6,6 +6,12 @@ namespace Photon.GUI
 {
     public class PhotonCheckButton : Control
     {
+        public PhotonCheckButton()
+        {
+            Globals.Colors.OnColorsUpdated += new Action(delegate () {
+                this.Invalidate();
+            });
+        }
 
         private bool _Checked = false;
         public bool Checked
@@ -113,26 +119,26 @@ namespace Photon.GUI
                 {
                     case ControlState.Normal:
                         FillBrush = new SolidBrush(Globals.Colors.PRIMARY_Main);
-                        LineBrush = new SolidBrush(Globals.Colors.GRAYSCALE_Light);
+                        LineBrush = new SolidBrush(Globals.Colors.CONTROL_Light);
                         break;
                     case ControlState.Hover:
                         FillBrush = new SolidBrush(Globals.Colors.PRIMARY_Main);
-                        LineBrush = new SolidBrush(Globals.Colors.GRAYSCALE_Light);
+                        LineBrush = new SolidBrush(Globals.Colors.CONTROL_Light);
                         break;
                     case ControlState.Pressed:
                         FillBrush = new SolidBrush(Globals.Colors.PRIMARY_Main);
-                        LineBrush = new SolidBrush(Globals.Colors.GRAYSCALE_Light);
+                        LineBrush = new SolidBrush(Globals.Colors.CONTROL_Light);
                         break;
                     default:
                         FillBrush = new SolidBrush(Globals.Colors.PRIMARY_Main);
-                        LineBrush = new SolidBrush(Globals.Colors.GRAYSCALE_Light);
+                        LineBrush = new SolidBrush(Globals.Colors.CONTROL_Light);
                         break;
                 }
             }
             else
             {
                 FillBrush = new SolidBrush(Globals.Colors.PRIMARY_Main);
-                LineBrush = new SolidBrush(Globals.Colors.GRAYSCALE_Light);
+                LineBrush = new SolidBrush(Globals.Colors.CONTROL_Light);
             }
 
             e.Graphics.Clear(BackColor);

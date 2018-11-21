@@ -30,9 +30,6 @@
         {
             this.Header = new System.Windows.Forms.Panel();
             this.Extend = new System.Windows.Forms.Panel();
-            this.ExtendBar = new Photon.GUI.PhotonPanel();
-            this.TitleBackground = new Photon.GUI.PhotonPanel();
-            this.TitleBox = new Photon.GUI.PhotonLabel();
             this.MainPanel = new Photon.GUI.PhotonPanel();
             this.InnerBorder = new System.Windows.Forms.Panel();
             this.Content = new Photon.GUI.PhotonPanel();
@@ -41,13 +38,16 @@
             this.OpenBtn = new Photon.GUI.PhotonButtonSimple();
             this.RightLine = new System.Windows.Forms.Panel();
             this.LeftLine = new System.Windows.Forms.Panel();
+            this.ExtendBar = new Photon.GUI.PhotonPanel();
+            this.TitleBackground = new Photon.GUI.PhotonPanel();
+            this.TitleBox = new Photon.GUI.PhotonLabel();
             this.Header.SuspendLayout();
             this.Extend.SuspendLayout();
-            this.TitleBackground.SuspendLayout();
             this.MainPanel.SuspendLayout();
             this.InnerBorder.SuspendLayout();
             this.Content.SuspendLayout();
             this.BottomLayout.SuspendLayout();
+            this.TitleBackground.SuspendLayout();
             this.SuspendLayout();
             // 
             // Header
@@ -57,7 +57,7 @@
             this.Header.Dock = System.Windows.Forms.DockStyle.Top;
             this.Header.Location = new System.Drawing.Point(0, 0);
             this.Header.Name = "Header";
-            this.Header.Padding = new System.Windows.Forms.Padding(4, 4, 4, 0);
+            this.Header.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.Header.Size = new System.Drawing.Size(256, 32);
             this.Header.TabIndex = 1;
             // 
@@ -65,45 +65,11 @@
             // 
             this.Extend.Controls.Add(this.ExtendBar);
             this.Extend.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Extend.Location = new System.Drawing.Point(72, 4);
+            this.Extend.Location = new System.Drawing.Point(68, 4);
             this.Extend.Name = "Extend";
             this.Extend.Padding = new System.Windows.Forms.Padding(4, 0, 0, 4);
-            this.Extend.Size = new System.Drawing.Size(180, 28);
+            this.Extend.Size = new System.Drawing.Size(188, 28);
             this.Extend.TabIndex = 1;
-            // 
-            // ExtendBar
-            // 
-            this.ExtendBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(109)))), ((int)(((byte)(145)))));
-            this.ExtendBar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ExtendBar.Location = new System.Drawing.Point(4, 0);
-            this.ExtendBar.Name = "ExtendBar";
-            this.ExtendBar.Size = new System.Drawing.Size(176, 24);
-            this.ExtendBar.TabIndex = 0;
-            // 
-            // TitleBackground
-            // 
-            this.TitleBackground.AutoSize = true;
-            this.TitleBackground.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.TitleBackground.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(109)))), ((int)(((byte)(145)))));
-            this.TitleBackground.Controls.Add(this.TitleBox);
-            this.TitleBackground.Dock = System.Windows.Forms.DockStyle.Left;
-            this.TitleBackground.Location = new System.Drawing.Point(4, 4);
-            this.TitleBackground.Name = "TitleBackground";
-            this.TitleBackground.Padding = new System.Windows.Forms.Padding(12, 4, 12, 4);
-            this.TitleBackground.Size = new System.Drawing.Size(68, 28);
-            this.TitleBackground.TabIndex = 0;
-            // 
-            // TitleBox
-            // 
-            this.TitleBox.AutoSize = true;
-            this.TitleBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TitleBox.Font = new System.Drawing.Font("Arial Black", 10F, System.Drawing.FontStyle.Bold);
-            this.TitleBox.ForeColor = System.Drawing.Color.White;
-            this.TitleBox.Location = new System.Drawing.Point(12, 4);
-            this.TitleBox.Name = "TitleBox";
-            this.TitleBox.Size = new System.Drawing.Size(44, 19);
-            this.TitleBox.TabIndex = 0;
-            this.TitleBox.Text = "Title";
             // 
             // MainPanel
             // 
@@ -205,6 +171,40 @@
             this.LeftLine.Size = new System.Drawing.Size(22, 4);
             this.LeftLine.TabIndex = 2;
             // 
+            // ExtendBar
+            // 
+            this.ExtendBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(109)))), ((int)(((byte)(145)))));
+            this.ExtendBar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ExtendBar.Location = new System.Drawing.Point(4, 0);
+            this.ExtendBar.Name = "ExtendBar";
+            this.ExtendBar.Size = new System.Drawing.Size(184, 24);
+            this.ExtendBar.TabIndex = 0;
+            // 
+            // TitleBackground
+            // 
+            this.TitleBackground.AutoSize = true;
+            this.TitleBackground.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.TitleBackground.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(109)))), ((int)(((byte)(145)))));
+            this.TitleBackground.Controls.Add(this.TitleBox);
+            this.TitleBackground.Dock = System.Windows.Forms.DockStyle.Left;
+            this.TitleBackground.Location = new System.Drawing.Point(0, 4);
+            this.TitleBackground.Name = "TitleBackground";
+            this.TitleBackground.Padding = new System.Windows.Forms.Padding(12, 4, 12, 4);
+            this.TitleBackground.Size = new System.Drawing.Size(68, 28);
+            this.TitleBackground.TabIndex = 0;
+            // 
+            // TitleBox
+            // 
+            this.TitleBox.AutoSize = true;
+            this.TitleBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TitleBox.Font = new System.Drawing.Font("Arial Black", 10F, System.Drawing.FontStyle.Bold);
+            this.TitleBox.ForeColor = System.Drawing.Color.White;
+            this.TitleBox.Location = new System.Drawing.Point(12, 4);
+            this.TitleBox.Name = "TitleBox";
+            this.TitleBox.Size = new System.Drawing.Size(44, 19);
+            this.TitleBox.TabIndex = 0;
+            this.TitleBox.Text = "Title";
+            // 
             // FolderShortcutListItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -217,12 +217,12 @@
             this.Header.ResumeLayout(false);
             this.Header.PerformLayout();
             this.Extend.ResumeLayout(false);
-            this.TitleBackground.ResumeLayout(false);
-            this.TitleBackground.PerformLayout();
             this.MainPanel.ResumeLayout(false);
             this.InnerBorder.ResumeLayout(false);
             this.Content.ResumeLayout(false);
             this.BottomLayout.ResumeLayout(false);
+            this.TitleBackground.ResumeLayout(false);
+            this.TitleBackground.PerformLayout();
             this.ResumeLayout(false);
 
         }

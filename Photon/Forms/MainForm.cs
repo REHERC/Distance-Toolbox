@@ -15,7 +15,6 @@ namespace Photon.Forms
     {
         public MainForm()
         {
-            
             Pages = new List<ToolPage>();
             InitializeComponent();
             Globals.Colors.OnColorsUpdated += new Action(delegate () {
@@ -37,6 +36,8 @@ namespace Photon.Forms
                 AddPageSafe(redirect);
                 SetPage(redirect.PageName);
             }
+
+            Globals.Colors.UpdateColors();
         }
         
         private void UpdateGUIColors()

@@ -23,6 +23,17 @@ namespace Photon.Globals
 
         public static void UpdateColors()
         {
+            if (Globals.Settings.General.Data.DarkTheme)
+            {
+                GRAYSCALE_Light = Color.Silver;
+                CONTROL_Light = Color.Gainsboro;
+            }
+            else
+            {
+                GRAYSCALE_Light = Color.White;
+                CONTROL_Light = Color.White;
+            }
+            
             OnColorsUpdated.Invoke();
         }
     }

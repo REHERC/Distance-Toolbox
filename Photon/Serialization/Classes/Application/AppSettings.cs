@@ -13,5 +13,8 @@ namespace Photon.Serialization.Data
 
         [DataMember, XmlElement(IsNullable = false)]
         public string AppColor = Color.FromArgb(255, 36, 109, 145).Serialize();
+
+        [DataMember, XmlElement(IsNullable = false)]
+        public bool DarkTheme = false;
     }
 }

@@ -56,7 +56,10 @@ namespace Photon.User_Controls
             
             Path = path;
 
-            
+            if (!Directory.Exists(Path))
+            {
+                OpenBtn.Enabled = false;
+            }
         }
 
         private void OpenBtn_Click(object sender, EventArgs e)

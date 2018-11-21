@@ -10,7 +10,7 @@ namespace Photon.Globals
         {
             Globals.Variables.AppPath = Application.StartupPath;
             General = new Serializer<AppSettings>(SerializerType.Xml,"Settings",true);
-            General.Save();
+            General.Save(); // Create the settings file if it doesn't exist (this doesn't overwrites the file if it already exists)
             Globals.Colors.PRIMARY_Main = ColorExtensions.Deserialize(General.Data.AppColor);
         }
         public static Serializer<AppSettings> General;

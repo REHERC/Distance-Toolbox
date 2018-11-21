@@ -23,6 +23,7 @@ namespace Photon.Pages.Settings
             InitializeComponent();
             GeneralSettings = Globals.Settings.General.Data;
             GameDirBox.Text = GeneralSettings.GameDir;
+            DarkModeBox.Checked = GeneralSettings.DarkTheme;
         }
 
         private void SettingsPage_Load(object sender, System.EventArgs e)
@@ -71,6 +72,7 @@ namespace Photon.Pages.Settings
         private void Close() {
             Globals.Settings.General.Load();
             Globals.Variables.MainForm.SetPage("pages:home");
+            Globals.Variables.MainForm.RemovePage(PageName);
         }
 
         private void Apply_Click(object sender, System.EventArgs e)
@@ -80,7 +82,7 @@ namespace Photon.Pages.Settings
 
         private void ResetSettings_Click(object sender, System.EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to reset all settings to their default value ?\nThis will restart the application ...", "Reset settings",MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Are you sure you want to reset all settings to their default value ?\nThis will restart the application ...\n\nThis action can't be undone !", "Reset settings",MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 File.Delete($@"{Application.StartupPath}\Settings.xml");
                 Application.Restart();
@@ -103,6 +105,11 @@ namespace Photon.Pages.Settings
             }
 
             Colorpicker.Dispose();
+        }
+
+        private void DarkModeBox_Click(object sender, System.EventArgs e)
+        {
+            GeneralSettings.DarkTheme = !DarkModeBox.Checked;
         }
     }
 }

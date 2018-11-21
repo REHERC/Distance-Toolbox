@@ -40,7 +40,9 @@ namespace Photon.Pages.Settings
             this.GameDirBox = new Photon.GUI.PhotonTextBox();
             this.GamePathBtn = new Photon.GUI.PhotonButtonSimple();
             this.InterfaceColorContainer = new System.Windows.Forms.Panel();
+            this.InterfaceColorPreview = new System.Windows.Forms.Panel();
             this.InterfaceColorPick = new System.Windows.Forms.Panel();
+            this.InterfaceColorBtn = new Photon.GUI.PhotonButtonSimple();
             this.ResetSettingsContainer = new System.Windows.Forms.Panel();
             this.ResetSettings = new Photon.GUI.PhotonButtonSimple();
             this.BottomPanel = new System.Windows.Forms.Panel();
@@ -49,17 +51,19 @@ namespace Photon.Pages.Settings
             this.Ok = new Photon.GUI.PhotonTrayButton();
             this.ApplyBtn = new Photon.GUI.PhotonTrayButton();
             this.BottomSeparator = new System.Windows.Forms.Panel();
-            this.InterfaceColorBtn = new Photon.GUI.PhotonButtonSimple();
-            this.InterfaceColorPreview = new System.Windows.Forms.Panel();
+            this.DarkModeBox = new Photon.GUI.PhotonCheckButton();
+            this.DarkModeContainer = new System.Windows.Forms.Panel();
+            this.DarkModeName = new Photon.GUI.PhotonLabel();
             this.MainPanel.SuspendLayout();
             this.OptionsLayout.SuspendLayout();
             this.OptionsTable.SuspendLayout();
             this.GamePathContainer.SuspendLayout();
             this.InterfaceColorContainer.SuspendLayout();
+            this.InterfaceColorPreview.SuspendLayout();
             this.ResetSettingsContainer.SuspendLayout();
             this.BottomPanel.SuspendLayout();
             this.ActionButtonsFlow.SuspendLayout();
-            this.InterfaceColorPreview.SuspendLayout();
+            this.DarkModeContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainPanel
@@ -81,7 +85,7 @@ namespace Photon.Pages.Settings
             this.OptionsLayout.Dock = System.Windows.Forms.DockStyle.Top;
             this.OptionsLayout.Location = new System.Drawing.Point(16, 16);
             this.OptionsLayout.Name = "OptionsLayout";
-            this.OptionsLayout.Size = new System.Drawing.Size(608, 103);
+            this.OptionsLayout.Size = new System.Drawing.Size(608, 127);
             this.OptionsLayout.TabIndex = 2;
             // 
             // OptionsTable
@@ -91,19 +95,23 @@ namespace Photon.Pages.Settings
             this.OptionsTable.ColumnCount = 2;
             this.OptionsTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.OptionsTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 0F));
+            this.OptionsTable.Controls.Add(this.DarkModeName, 0, 2);
             this.OptionsTable.Controls.Add(this.InterfaceColorName, 0, 1);
             this.OptionsTable.Controls.Add(this.GamePathName, 0, 0);
             this.OptionsTable.Controls.Add(this.GamePathContainer, 1, 0);
             this.OptionsTable.Controls.Add(this.InterfaceColorContainer, 1, 1);
-            this.OptionsTable.Controls.Add(this.ResetSettingsContainer, 1, 2);
+            this.OptionsTable.Controls.Add(this.ResetSettingsContainer, 1, 3);
+            this.OptionsTable.Controls.Add(this.DarkModeContainer, 1, 2);
             this.OptionsTable.Dock = System.Windows.Forms.DockStyle.Top;
             this.OptionsTable.Location = new System.Drawing.Point(0, 0);
             this.OptionsTable.Name = "OptionsTable";
-            this.OptionsTable.RowCount = 3;
+            this.OptionsTable.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.OptionsTable.RowCount = 4;
             this.OptionsTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.OptionsTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.OptionsTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.OptionsTable.Size = new System.Drawing.Size(608, 103);
+            this.OptionsTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.OptionsTable.Size = new System.Drawing.Size(608, 127);
             this.OptionsTable.TabIndex = 0;
             // 
             // InterfaceColorName
@@ -112,12 +120,13 @@ namespace Photon.Pages.Settings
             this.InterfaceColorName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.InterfaceColorName.Font = new System.Drawing.Font("Arial Black", 10F, System.Drawing.FontStyle.Bold);
             this.InterfaceColorName.ForeColor = System.Drawing.Color.White;
-            this.InterfaceColorName.Location = new System.Drawing.Point(3, 19);
+            this.InterfaceColorName.Location = new System.Drawing.Point(4, 19);
+            this.InterfaceColorName.Margin = new System.Windows.Forms.Padding(0, 0, 4, 0);
             this.InterfaceColorName.Name = "InterfaceColorName";
             this.InterfaceColorName.Size = new System.Drawing.Size(136, 20);
             this.InterfaceColorName.TabIndex = 2;
             this.InterfaceColorName.Text = "Interface color :";
-            this.InterfaceColorName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.InterfaceColorName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // GamePathName
             // 
@@ -125,12 +134,13 @@ namespace Photon.Pages.Settings
             this.GamePathName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GamePathName.Font = new System.Drawing.Font("Arial Black", 10F, System.Drawing.FontStyle.Bold);
             this.GamePathName.ForeColor = System.Drawing.Color.White;
-            this.GamePathName.Location = new System.Drawing.Point(3, 0);
+            this.GamePathName.Location = new System.Drawing.Point(4, 0);
+            this.GamePathName.Margin = new System.Windows.Forms.Padding(0, 0, 4, 0);
             this.GamePathName.Name = "GamePathName";
             this.GamePathName.Size = new System.Drawing.Size(136, 19);
             this.GamePathName.TabIndex = 0;
             this.GamePathName.Text = "Game directory :";
-            this.GamePathName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.GamePathName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // GamePathContainer
             // 
@@ -138,11 +148,11 @@ namespace Photon.Pages.Settings
             this.GamePathContainer.Controls.Add(this.GameDirBox);
             this.GamePathContainer.Controls.Add(this.GamePathBtn);
             this.GamePathContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GamePathContainer.Location = new System.Drawing.Point(142, 0);
+            this.GamePathContainer.Location = new System.Drawing.Point(144, 0);
             this.GamePathContainer.Margin = new System.Windows.Forms.Padding(0);
             this.GamePathContainer.Name = "GamePathContainer";
             this.GamePathContainer.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.GamePathContainer.Size = new System.Drawing.Size(466, 19);
+            this.GamePathContainer.Size = new System.Drawing.Size(464, 19);
             this.GamePathContainer.TabIndex = 1;
             // 
             // GameDirBox
@@ -155,7 +165,7 @@ namespace Photon.Pages.Settings
             this.GameDirBox.Location = new System.Drawing.Point(8, 0);
             this.GameDirBox.Name = "GameDirBox";
             this.GameDirBox.ReadOnly = true;
-            this.GameDirBox.Size = new System.Drawing.Size(416, 19);
+            this.GameDirBox.Size = new System.Drawing.Size(414, 19);
             this.GameDirBox.TabIndex = 1;
             this.GameDirBox.Text = "Not set.";
             this.GameDirBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -167,7 +177,7 @@ namespace Photon.Pages.Settings
             this.GamePathBtn.Cursor = System.Windows.Forms.Cursors.Default;
             this.GamePathBtn.Dock = System.Windows.Forms.DockStyle.Right;
             this.GamePathBtn.Font = new System.Drawing.Font("Arial Black", 10F, System.Drawing.FontStyle.Bold);
-            this.GamePathBtn.Location = new System.Drawing.Point(424, 0);
+            this.GamePathBtn.Location = new System.Drawing.Point(422, 0);
             this.GamePathBtn.Name = "GamePathBtn";
             this.GamePathBtn.Size = new System.Drawing.Size(34, 19);
             this.GamePathBtn.TabIndex = 1;
@@ -181,11 +191,21 @@ namespace Photon.Pages.Settings
             this.InterfaceColorContainer.Controls.Add(this.InterfaceColorPreview);
             this.InterfaceColorContainer.Controls.Add(this.InterfaceColorBtn);
             this.InterfaceColorContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.InterfaceColorContainer.Location = new System.Drawing.Point(150, 19);
+            this.InterfaceColorContainer.Location = new System.Drawing.Point(152, 19);
             this.InterfaceColorContainer.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.InterfaceColorContainer.Name = "InterfaceColorContainer";
-            this.InterfaceColorContainer.Size = new System.Drawing.Size(450, 20);
+            this.InterfaceColorContainer.Size = new System.Drawing.Size(448, 20);
             this.InterfaceColorContainer.TabIndex = 3;
+            // 
+            // InterfaceColorPreview
+            // 
+            this.InterfaceColorPreview.Controls.Add(this.InterfaceColorPick);
+            this.InterfaceColorPreview.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.InterfaceColorPreview.Location = new System.Drawing.Point(0, 0);
+            this.InterfaceColorPreview.Name = "InterfaceColorPreview";
+            this.InterfaceColorPreview.Padding = new System.Windows.Forms.Padding(4);
+            this.InterfaceColorPreview.Size = new System.Drawing.Size(414, 20);
+            this.InterfaceColorPreview.TabIndex = 3;
             // 
             // InterfaceColorPick
             // 
@@ -194,8 +214,23 @@ namespace Photon.Pages.Settings
             this.InterfaceColorPick.Location = new System.Drawing.Point(4, 4);
             this.InterfaceColorPick.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.InterfaceColorPick.Name = "InterfaceColorPick";
-            this.InterfaceColorPick.Size = new System.Drawing.Size(408, 12);
+            this.InterfaceColorPick.Size = new System.Drawing.Size(406, 12);
             this.InterfaceColorPick.TabIndex = 4;
+            // 
+            // InterfaceColorBtn
+            // 
+            this.InterfaceColorBtn.AutoSize = true;
+            this.InterfaceColorBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.InterfaceColorBtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.InterfaceColorBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.InterfaceColorBtn.Font = new System.Drawing.Font("Arial Black", 10F, System.Drawing.FontStyle.Bold);
+            this.InterfaceColorBtn.Location = new System.Drawing.Point(414, 0);
+            this.InterfaceColorBtn.Name = "InterfaceColorBtn";
+            this.InterfaceColorBtn.Size = new System.Drawing.Size(34, 20);
+            this.InterfaceColorBtn.TabIndex = 2;
+            this.InterfaceColorBtn.Text = "...";
+            this.InterfaceColorBtn.UseVisualStyleBackColor = true;
+            this.InterfaceColorBtn.Click += new System.EventHandler(this.InterfaceColorBtn_Click);
             // 
             // ResetSettingsContainer
             // 
@@ -204,10 +239,10 @@ namespace Photon.Pages.Settings
             this.ResetSettingsContainer.BackColor = System.Drawing.Color.White;
             this.ResetSettingsContainer.Controls.Add(this.ResetSettings);
             this.ResetSettingsContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ResetSettingsContainer.Location = new System.Drawing.Point(150, 55);
-            this.ResetSettingsContainer.Margin = new System.Windows.Forms.Padding(8, 16, 8, 16);
+            this.ResetSettingsContainer.Location = new System.Drawing.Point(152, 87);
+            this.ResetSettingsContainer.Margin = new System.Windows.Forms.Padding(8, 0, 8, 8);
             this.ResetSettingsContainer.Name = "ResetSettingsContainer";
-            this.ResetSettingsContainer.Size = new System.Drawing.Size(450, 32);
+            this.ResetSettingsContainer.Size = new System.Drawing.Size(448, 32);
             this.ResetSettingsContainer.TabIndex = 4;
             // 
             // ResetSettings
@@ -219,7 +254,7 @@ namespace Photon.Pages.Settings
             this.ResetSettings.Location = new System.Drawing.Point(0, 0);
             this.ResetSettings.MinimumSize = new System.Drawing.Size(0, 32);
             this.ResetSettings.Name = "ResetSettings";
-            this.ResetSettings.Size = new System.Drawing.Size(450, 32);
+            this.ResetSettings.Size = new System.Drawing.Size(448, 32);
             this.ResetSettings.TabIndex = 0;
             this.ResetSettings.Text = "Reset to defaults";
             this.ResetSettings.UseVisualStyleBackColor = true;
@@ -301,30 +336,41 @@ namespace Photon.Pages.Settings
             this.BottomSeparator.Size = new System.Drawing.Size(640, 1);
             this.BottomSeparator.TabIndex = 4;
             // 
-            // InterfaceColorBtn
+            // DarkModeBox
             // 
-            this.InterfaceColorBtn.AutoSize = true;
-            this.InterfaceColorBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.InterfaceColorBtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.InterfaceColorBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.InterfaceColorBtn.Font = new System.Drawing.Font("Arial Black", 10F, System.Drawing.FontStyle.Bold);
-            this.InterfaceColorBtn.Location = new System.Drawing.Point(416, 0);
-            this.InterfaceColorBtn.Name = "InterfaceColorBtn";
-            this.InterfaceColorBtn.Size = new System.Drawing.Size(34, 20);
-            this.InterfaceColorBtn.TabIndex = 2;
-            this.InterfaceColorBtn.Text = "...";
-            this.InterfaceColorBtn.UseVisualStyleBackColor = true;
-            this.InterfaceColorBtn.Click += new System.EventHandler(this.InterfaceColorBtn_Click);
+            this.DarkModeBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.DarkModeBox.Checked = false;
+            this.DarkModeBox.Font = new System.Drawing.Font("Arial", 10F);
+            this.DarkModeBox.Location = new System.Drawing.Point(365, 8);
+            this.DarkModeBox.Name = "DarkModeBox";
+            this.DarkModeBox.Size = new System.Drawing.Size(91, 32);
+            this.DarkModeBox.TabIndex = 6;
+            this.DarkModeBox.Text = "Off";
+            this.DarkModeBox.Click += new System.EventHandler(this.DarkModeBox_Click);
             // 
-            // InterfaceColorPreview
+            // DarkModeContainer
             // 
-            this.InterfaceColorPreview.Controls.Add(this.InterfaceColorPick);
-            this.InterfaceColorPreview.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.InterfaceColorPreview.Location = new System.Drawing.Point(0, 0);
-            this.InterfaceColorPreview.Name = "InterfaceColorPreview";
-            this.InterfaceColorPreview.Padding = new System.Windows.Forms.Padding(4);
-            this.InterfaceColorPreview.Size = new System.Drawing.Size(416, 20);
-            this.InterfaceColorPreview.TabIndex = 3;
+            this.DarkModeContainer.Controls.Add(this.DarkModeBox);
+            this.DarkModeContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DarkModeContainer.Location = new System.Drawing.Point(144, 39);
+            this.DarkModeContainer.Margin = new System.Windows.Forms.Padding(0);
+            this.DarkModeContainer.Name = "DarkModeContainer";
+            this.DarkModeContainer.Size = new System.Drawing.Size(464, 48);
+            this.DarkModeContainer.TabIndex = 7;
+            // 
+            // DarkModeName
+            // 
+            this.DarkModeName.AutoSize = true;
+            this.DarkModeName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DarkModeName.Font = new System.Drawing.Font("Arial Black", 10F, System.Drawing.FontStyle.Bold);
+            this.DarkModeName.ForeColor = System.Drawing.Color.White;
+            this.DarkModeName.Location = new System.Drawing.Point(4, 39);
+            this.DarkModeName.Margin = new System.Windows.Forms.Padding(0, 0, 4, 0);
+            this.DarkModeName.Name = "DarkModeName";
+            this.DarkModeName.Size = new System.Drawing.Size(136, 48);
+            this.DarkModeName.TabIndex = 8;
+            this.DarkModeName.Text = "Dark mode :";
+            this.DarkModeName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // SettingsPage
             // 
@@ -347,12 +393,13 @@ namespace Photon.Pages.Settings
             this.GamePathContainer.PerformLayout();
             this.InterfaceColorContainer.ResumeLayout(false);
             this.InterfaceColorContainer.PerformLayout();
+            this.InterfaceColorPreview.ResumeLayout(false);
             this.ResetSettingsContainer.ResumeLayout(false);
             this.ResetSettingsContainer.PerformLayout();
             this.BottomPanel.ResumeLayout(false);
             this.ActionButtonsFlow.ResumeLayout(false);
             this.ActionButtonsFlow.PerformLayout();
-            this.InterfaceColorPreview.ResumeLayout(false);
+            this.DarkModeContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -379,5 +426,8 @@ namespace Photon.Pages.Settings
         private GUI.PhotonButtonSimple ResetSettings;
         private System.Windows.Forms.Panel InterfaceColorPreview;
         private GUI.PhotonButtonSimple InterfaceColorBtn;
+        private GUI.PhotonLabel DarkModeName;
+        private System.Windows.Forms.Panel DarkModeContainer;
+        private GUI.PhotonCheckButton DarkModeBox;
     }
 }

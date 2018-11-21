@@ -242,6 +242,7 @@
     <Compile Include="Serialization\Serializer\SerializerType.cs" />
     <Compile Include="Serialization\Xml\XmlGeneric.cs" />
     <Compile Include="Serialization\Classes\Application\AppSettings.cs" />
+    <Compile Include="TODO.cs" />
     <Compile Include="User Controls\FolderShortcutListItem.cs">
       <SubType>UserControl</SubType>
     </Compile>

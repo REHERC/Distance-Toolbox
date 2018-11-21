@@ -92,6 +92,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.IO, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IO.4.1.0\lib\net462\System.IO.dll</HintPath>
       <Private>True</Private>
@@ -195,6 +196,12 @@
     <Compile Include="Pages\Error\ErrorPage.Designer.cs">
       <DependentUpon>ErrorPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages\GameFiles\BrowseGameFilesPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\GameFiles\BrowseGameFilesPage.Designer.cs">
+      <DependentUpon>BrowseGameFilesPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Home\HomePage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -235,6 +242,12 @@
     <Compile Include="Serialization\Serializer\SerializerType.cs" />
     <Compile Include="Serialization\Xml\XmlGeneric.cs" />
     <Compile Include="Serialization\Classes\Application\AppSettings.cs" />
+    <Compile Include="User Controls\FolderShortcutListItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\FolderShortcutListItem.Designer.cs">
+      <DependentUpon>FolderShortcutListItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="User Controls\SpectrumPluginListItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -255,6 +268,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\Error\ErrorPage.resx">
       <DependentUpon>ErrorPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\GameFiles\BrowseGameFilesPage.resx">
+      <DependentUpon>BrowseGameFilesPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\Home\HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
@@ -281,6 +297,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="User Controls\FolderShortcutListItem.resx">
+      <DependentUpon>FolderShortcutListItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="User Controls\SpectrumPluginListItem.resx">
       <DependentUpon>SpectrumPluginListItem.cs</DependentUpon>
     </EmbeddedResource>

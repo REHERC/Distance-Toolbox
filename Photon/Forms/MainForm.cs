@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
 using Photon.GUI.ToolPage;
@@ -54,7 +55,7 @@ namespace Photon.Forms
         
         private void BugReportBtn_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/REHERC/Distance-Toolbox/issues");
+            Process.Start("https://github.com/REHERC/Distance-Toolbox/issues");
         }
 
 

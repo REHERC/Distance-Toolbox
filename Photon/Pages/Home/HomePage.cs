@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Security.Permissions;
 using System.Windows.Forms;
 using Photon.GUI.ToolPage;
 using Photon.Pages.Backups;
 using Photon.Pages.Error;
+using Photon.Pages.GameFiles;
 using Photon.Pages.Settings;
 using Photon.Pages.Spectrum;
 
@@ -68,10 +70,6 @@ namespace Photon.Pages.Home
         {
             base.Reload();
             Separator_1.BackColor = Globals.Colors.GRAYSCALE_Darker;
-            GameCategoryContainer.BackColor = Globals.Colors.GRAYSCALE_Dark;
-            SpectrumCategoryContainer.BackColor = Globals.Colors.GRAYSCALE_Dark;
-            UtilitiesCategoryContainer.BackColor = Globals.Colors.GRAYSCALE_Dark;
-            OnlineCategoryContainer.BackColor = Globals.Colors.GRAYSCALE_Dark;
 
             SettingsCategoryContainer.BackColor = Globals.Colors.GRAYSCALE_Dark;
         }
@@ -116,24 +114,15 @@ namespace Photon.Pages.Home
             ToolsPanel.Focus();
         }
 
-        private void GameCategory_Click(object sender, EventArgs e)
+        private void BrowseBtn_Click(object sender, EventArgs e)
         {
-            GameHeader.Select();
+            Globals.Variables.MainForm.AddPageSafe(new BrowseGameFilesPage());
+            Globals.Variables.MainForm.SetPage("pages:browsegamefiles");
         }
 
-        private void SpectrumCategory_Click(object sender, EventArgs e)
+        private void DownloadSpectrumBtn_Click(object sender, EventArgs e)
         {
-            SpectrumHeader.Select();
-        }
-
-        private void UtilitiesCategory_Click(object sender, EventArgs e)
-        {
-            UtilitiesHeader.Select();
-        }
-
-        private void OnlineCategory_Click(object sender, EventArgs e)
-        {
-            OnlineHeader.Select();
+            Process.Start("https://github.com/ciastex/spectrum/releases/latest");
         }
     }
 }

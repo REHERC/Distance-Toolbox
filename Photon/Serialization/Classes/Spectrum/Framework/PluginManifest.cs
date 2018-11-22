@@ -14,6 +14,9 @@ namespace Photon.Serialization.Data
         public string Author = "Author";
 
         [DataMember, XmlElement(IsNullable = false)]
+        public string AuthorContact = "Author Contact";
+
+        [DataMember, XmlElement(IsNullable = false)]
         public int CompatibleAPILevel = 6;
 
         [DataMember, XmlElement(IsNullable = false)]

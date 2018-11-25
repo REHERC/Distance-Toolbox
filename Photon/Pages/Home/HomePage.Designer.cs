@@ -31,10 +31,13 @@ namespace Photon.Pages.Home
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.MainPanel = new System.Windows.Forms.Panel();
             this.ToolsPanel = new System.Windows.Forms.TableLayoutPanel();
             this.TorchtBtn = new Photon.GUI.PhotonButton();
             this.UtilitiesHeader = new Photon.GUI.PhotonHeaderLabel();
+            this.UtilitiesMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ShowTorchtItem = new System.Windows.Forms.ToolStripMenuItem();
             this.GameHeader = new Photon.GUI.PhotonHeaderLabel();
             this.BrowseBtn = new Photon.GUI.PhotonButton();
             this.RunGameBtn = new Photon.GUI.PhotonButton();
@@ -45,19 +48,20 @@ namespace Photon.Pages.Home
             this.BackupBtn = new Photon.GUI.PhotonButton();
             this.OnlineHeader = new Photon.GUI.PhotonHeaderLabel();
             this.ManagePlaylistsBtn = new Photon.GUI.PhotonButton();
-            this.OnlineServersBtn = new Photon.GUI.PhotonButton();
-            this.SocialMediaBtn = new Photon.GUI.PhotonButton();
             this.DownloadSpectrumBtn = new Photon.GUI.PhotonButton();
             this.SpectrumLogsBtn = new Photon.GUI.PhotonButton();
+            this.OnlineLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.SocialMediaBtn = new Photon.GUI.PhotonButton();
+            this.OnlineServersBtn = new Photon.GUI.PhotonButton();
             this.SettingsBtn = new Photon.GUI.PhotonButtonSimple();
             this.TopBar = new System.Windows.Forms.Panel();
             this.SettingsCategoryContainer = new System.Windows.Forms.Panel();
             this.Separator_1 = new System.Windows.Forms.Panel();
-            this.OnlineLayout = new System.Windows.Forms.TableLayoutPanel();
             this.MainPanel.SuspendLayout();
             this.ToolsPanel.SuspendLayout();
-            this.TopBar.SuspendLayout();
+            this.UtilitiesMenu.SuspendLayout();
             this.OnlineLayout.SuspendLayout();
+            this.TopBar.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainPanel
@@ -126,12 +130,14 @@ namespace Photon.Pages.Home
             this.TorchtBtn.TabIndex = 24;
             this.TorchtBtn.Text = "Torcht";
             this.TorchtBtn.UseVisualStyleBackColor = true;
+            this.TorchtBtn.Visible = false;
             this.TorchtBtn.Click += new System.EventHandler(this.TorchtBtn_Click);
             // 
             // UtilitiesHeader
             // 
             this.UtilitiesHeader.AutoSize = true;
             this.ToolsPanel.SetColumnSpan(this.UtilitiesHeader, 3);
+            this.UtilitiesHeader.ContextMenuStrip = this.UtilitiesMenu;
             this.UtilitiesHeader.Dock = System.Windows.Forms.DockStyle.Fill;
             this.UtilitiesHeader.Font = new System.Drawing.Font("Arial Black", 10F);
             this.UtilitiesHeader.Location = new System.Drawing.Point(8, 650);
@@ -141,6 +147,23 @@ namespace Photon.Pages.Home
             this.UtilitiesHeader.Size = new System.Drawing.Size(608, 35);
             this.UtilitiesHeader.TabIndex = 21;
             this.UtilitiesHeader.Text = "Utilities";
+            // 
+            // UtilitiesMenu
+            // 
+            this.UtilitiesMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ShowTorchtItem});
+            this.UtilitiesMenu.Name = "UtilitiesMenu";
+            this.UtilitiesMenu.ShowCheckMargin = true;
+            this.UtilitiesMenu.ShowImageMargin = false;
+            this.UtilitiesMenu.Size = new System.Drawing.Size(187, 48);
+            // 
+            // ShowTorchtItem
+            // 
+            this.ShowTorchtItem.CheckOnClick = true;
+            this.ShowTorchtItem.Name = "ShowTorchtItem";
+            this.ShowTorchtItem.Size = new System.Drawing.Size(186, 22);
+            this.ShowTorchtItem.Text = "Show advanced tools";
+            this.ShowTorchtItem.Click += new System.EventHandler(this.ShowTorchtItem_Click);
             // 
             // GameHeader
             // 
@@ -286,34 +309,6 @@ namespace Photon.Pages.Home
             this.ManagePlaylistsBtn.Text = "Manage Levels Playlists";
             this.ManagePlaylistsBtn.UseVisualStyleBackColor = true;
             // 
-            // OnlineServersBtn
-            // 
-            this.OnlineServersBtn.AutoSize = true;
-            this.OnlineServersBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.OnlineServersBtn.Enabled = false;
-            this.OnlineServersBtn.Font = new System.Drawing.Font("Arial Black", 10F);
-            this.OnlineServersBtn.Location = new System.Drawing.Point(8, 8);
-            this.OnlineServersBtn.Margin = new System.Windows.Forms.Padding(8);
-            this.OnlineServersBtn.Name = "OnlineServersBtn";
-            this.OnlineServersBtn.Size = new System.Drawing.Size(296, 129);
-            this.OnlineServersBtn.TabIndex = 11;
-            this.OnlineServersBtn.Text = "View Online Servers";
-            this.OnlineServersBtn.UseVisualStyleBackColor = true;
-            // 
-            // SocialMediaBtn
-            // 
-            this.SocialMediaBtn.AutoSize = true;
-            this.SocialMediaBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SocialMediaBtn.Enabled = false;
-            this.SocialMediaBtn.Font = new System.Drawing.Font("Arial Black", 10F);
-            this.SocialMediaBtn.Location = new System.Drawing.Point(320, 8);
-            this.SocialMediaBtn.Margin = new System.Windows.Forms.Padding(8);
-            this.SocialMediaBtn.Name = "SocialMediaBtn";
-            this.SocialMediaBtn.Size = new System.Drawing.Size(296, 129);
-            this.SocialMediaBtn.TabIndex = 14;
-            this.SocialMediaBtn.Text = "Refract\'s Social Media";
-            this.SocialMediaBtn.UseVisualStyleBackColor = true;
-            // 
             // DownloadSpectrumBtn
             // 
             this.DownloadSpectrumBtn.AutoSize = true;
@@ -342,6 +337,52 @@ namespace Photon.Pages.Home
             this.SpectrumLogsBtn.TabIndex = 8;
             this.SpectrumLogsBtn.Text = "View Spectrum Logs";
             this.SpectrumLogsBtn.UseVisualStyleBackColor = true;
+            // 
+            // OnlineLayout
+            // 
+            this.OnlineLayout.ColumnCount = 2;
+            this.ToolsPanel.SetColumnSpan(this.OnlineLayout, 3);
+            this.OnlineLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.OnlineLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.OnlineLayout.Controls.Add(this.SocialMediaBtn, 1, 0);
+            this.OnlineLayout.Controls.Add(this.OnlineServersBtn, 0, 0);
+            this.OnlineLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.OnlineLayout.Location = new System.Drawing.Point(0, 865);
+            this.OnlineLayout.Margin = new System.Windows.Forms.Padding(0);
+            this.OnlineLayout.Name = "OnlineLayout";
+            this.OnlineLayout.RowCount = 1;
+            this.OnlineLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.OnlineLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.OnlineLayout.Size = new System.Drawing.Size(624, 145);
+            this.OnlineLayout.TabIndex = 25;
+            // 
+            // SocialMediaBtn
+            // 
+            this.SocialMediaBtn.AutoSize = true;
+            this.SocialMediaBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SocialMediaBtn.Enabled = false;
+            this.SocialMediaBtn.Font = new System.Drawing.Font("Arial Black", 10F);
+            this.SocialMediaBtn.Location = new System.Drawing.Point(320, 8);
+            this.SocialMediaBtn.Margin = new System.Windows.Forms.Padding(8);
+            this.SocialMediaBtn.Name = "SocialMediaBtn";
+            this.SocialMediaBtn.Size = new System.Drawing.Size(296, 129);
+            this.SocialMediaBtn.TabIndex = 14;
+            this.SocialMediaBtn.Text = "Refract\'s Social Media";
+            this.SocialMediaBtn.UseVisualStyleBackColor = true;
+            // 
+            // OnlineServersBtn
+            // 
+            this.OnlineServersBtn.AutoSize = true;
+            this.OnlineServersBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.OnlineServersBtn.Enabled = false;
+            this.OnlineServersBtn.Font = new System.Drawing.Font("Arial Black", 10F);
+            this.OnlineServersBtn.Location = new System.Drawing.Point(8, 8);
+            this.OnlineServersBtn.Margin = new System.Windows.Forms.Padding(8);
+            this.OnlineServersBtn.Name = "OnlineServersBtn";
+            this.OnlineServersBtn.Size = new System.Drawing.Size(296, 129);
+            this.OnlineServersBtn.TabIndex = 11;
+            this.OnlineServersBtn.Text = "View Online Servers";
+            this.OnlineServersBtn.UseVisualStyleBackColor = true;
             // 
             // SettingsBtn
             // 
@@ -399,24 +440,6 @@ namespace Photon.Pages.Home
             this.Separator_1.Size = new System.Drawing.Size(640, 1);
             this.Separator_1.TabIndex = 5;
             // 
-            // OnlineLayout
-            // 
-            this.OnlineLayout.ColumnCount = 2;
-            this.ToolsPanel.SetColumnSpan(this.OnlineLayout, 3);
-            this.OnlineLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.OnlineLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.OnlineLayout.Controls.Add(this.SocialMediaBtn, 1, 0);
-            this.OnlineLayout.Controls.Add(this.OnlineServersBtn, 0, 0);
-            this.OnlineLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.OnlineLayout.Location = new System.Drawing.Point(0, 865);
-            this.OnlineLayout.Margin = new System.Windows.Forms.Padding(0);
-            this.OnlineLayout.Name = "OnlineLayout";
-            this.OnlineLayout.RowCount = 1;
-            this.OnlineLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.OnlineLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.OnlineLayout.Size = new System.Drawing.Size(624, 145);
-            this.OnlineLayout.TabIndex = 25;
-            // 
             // HomePage
             // 
             this.AutoSize = true;
@@ -433,10 +456,11 @@ namespace Photon.Pages.Home
             this.MainPanel.PerformLayout();
             this.ToolsPanel.ResumeLayout(false);
             this.ToolsPanel.PerformLayout();
-            this.TopBar.ResumeLayout(false);
-            this.TopBar.PerformLayout();
+            this.UtilitiesMenu.ResumeLayout(false);
             this.OnlineLayout.ResumeLayout(false);
             this.OnlineLayout.PerformLayout();
+            this.TopBar.ResumeLayout(false);
+            this.TopBar.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -467,5 +491,7 @@ namespace Photon.Pages.Home
         private GUI.PhotonButton DownloadSpectrumBtn;
         private GUI.PhotonButton TorchtBtn;
         private System.Windows.Forms.TableLayoutPanel OnlineLayout;
+        private System.Windows.Forms.ContextMenuStrip UtilitiesMenu;
+        private System.Windows.Forms.ToolStripMenuItem ShowTorchtItem;
     }
 }

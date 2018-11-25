@@ -76,28 +76,32 @@ namespace Photon.User_Controls
         
         private void EnabledBox_Click(object sender, System.EventArgs e)
         {
+            ManagePluginsMainPage pluginspage = new ManagePluginsMainPage();
+
+            foreach (ToolPage page in Globals.Variables.MainForm.Pages)
+            {
+                if (page.PageName == "pages:manageplugins.main")
+                {
+                    pluginspage = page as ManagePluginsMainPage;
+                }
+            }
+
             try
             {
                 if (Manifest.Data != null)
                 {
+                    EnabledBox.Enabled = false;
                     Manifest.Data.SkipLoad = EnabledBox.Checked;
                     Manifest.Save();
+                    Tools.Wait(0.45f, () => {
+                        EnabledBox.Enabled = true;
+                    });
                 }
             }
             catch (Exception Swooshyboi)
             {
-                foreach (ToolPage page in Globals.Variables.MainForm.Pages)
-                {
-                    if (page.PageName == "pages:manageplugins.main")
-                    {
-                        ManagePluginsMainPage pluginspage = page as ManagePluginsMainPage;
-
-                        pluginspage.LoadPluginList();
-                    }
-                }
-                
+                pluginspage.LoadPluginList();
             }
-            
         }
 
         private void FinalizeComponent()

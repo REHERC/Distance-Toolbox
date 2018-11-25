@@ -130,5 +130,10 @@ namespace Photon.Pages.Home
             Globals.Variables.MainForm.AddPageSafe(new GalleryPage());
             Globals.Variables.MainForm.SetPage("pages:gallery");
         }
+
+        private void ShowTorchtItem_Click(object sender, EventArgs e)
+        {
+            TorchtBtn.Visible = ShowTorchtItem.Checked;
+        }
     }
 }

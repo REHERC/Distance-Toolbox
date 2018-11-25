@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Security.Permissions;
 using System.Windows.Forms;
 using Photon.GUI.ToolPage;
 using Photon.Pages.Backups;
@@ -8,6 +7,7 @@ using Photon.Pages.Error;
 using Photon.Pages.GameFiles;
 using Photon.Pages.Settings;
 using Photon.Pages.Spectrum;
+using Photon.Pages.Torcht;
 
 namespace Photon.Pages.Home
 {
@@ -123,6 +123,12 @@ namespace Photon.Pages.Home
         private void DownloadSpectrumBtn_Click(object sender, EventArgs e)
         {
             Process.Start("https://github.com/ciastex/spectrum/releases/latest");
+        }
+
+        private void TorchtBtn_Click(object sender, EventArgs e)
+        {
+            Globals.Variables.MainForm.AddPageSafe(new GalleryPage());
+            Globals.Variables.MainForm.SetPage("pages:gallery");
         }
     }
 }

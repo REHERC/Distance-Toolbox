@@ -33,6 +33,7 @@ namespace Photon.Pages.Home
         {
             this.MainPanel = new System.Windows.Forms.Panel();
             this.ToolsPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.TorchtBtn = new Photon.GUI.PhotonButton();
             this.UtilitiesHeader = new Photon.GUI.PhotonHeaderLabel();
             this.GameHeader = new Photon.GUI.PhotonHeaderLabel();
             this.BrowseBtn = new Photon.GUI.PhotonButton();
@@ -40,7 +41,6 @@ namespace Photon.Pages.Home
             this.ConfigureGameBtn = new Photon.GUI.PhotonButton();
             this.SpectrumHeader = new Photon.GUI.PhotonHeaderLabel();
             this.PluginManifestButton = new Photon.GUI.PhotonButton();
-            this.SpectrumLogsBtn = new Photon.GUI.PhotonButton();
             this.SpectrumPluginsBtn = new Photon.GUI.PhotonButton();
             this.BackupBtn = new Photon.GUI.PhotonButton();
             this.OnlineHeader = new Photon.GUI.PhotonHeaderLabel();
@@ -48,13 +48,16 @@ namespace Photon.Pages.Home
             this.OnlineServersBtn = new Photon.GUI.PhotonButton();
             this.SocialMediaBtn = new Photon.GUI.PhotonButton();
             this.DownloadSpectrumBtn = new Photon.GUI.PhotonButton();
+            this.SpectrumLogsBtn = new Photon.GUI.PhotonButton();
             this.SettingsBtn = new Photon.GUI.PhotonButtonSimple();
             this.TopBar = new System.Windows.Forms.Panel();
             this.SettingsCategoryContainer = new System.Windows.Forms.Panel();
             this.Separator_1 = new System.Windows.Forms.Panel();
+            this.OnlineLayout = new System.Windows.Forms.TableLayoutPanel();
             this.MainPanel.SuspendLayout();
             this.ToolsPanel.SuspendLayout();
             this.TopBar.SuspendLayout();
+            this.OnlineLayout.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainPanel
@@ -78,6 +81,7 @@ namespace Photon.Pages.Home
             this.ToolsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33332F));
             this.ToolsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.ToolsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.ToolsPanel.Controls.Add(this.TorchtBtn, 2, 7);
             this.ToolsPanel.Controls.Add(this.UtilitiesHeader, 0, 6);
             this.ToolsPanel.Controls.Add(this.GameHeader, 0, 0);
             this.ToolsPanel.Controls.Add(this.BrowseBtn, 2, 1);
@@ -89,10 +93,9 @@ namespace Photon.Pages.Home
             this.ToolsPanel.Controls.Add(this.BackupBtn, 1, 7);
             this.ToolsPanel.Controls.Add(this.OnlineHeader, 0, 8);
             this.ToolsPanel.Controls.Add(this.ManagePlaylistsBtn, 0, 7);
-            this.ToolsPanel.Controls.Add(this.OnlineServersBtn, 0, 9);
-            this.ToolsPanel.Controls.Add(this.SocialMediaBtn, 1, 9);
             this.ToolsPanel.Controls.Add(this.DownloadSpectrumBtn, 0, 5);
             this.ToolsPanel.Controls.Add(this.SpectrumLogsBtn, 1, 5);
+            this.ToolsPanel.Controls.Add(this.OnlineLayout, 0, 9);
             this.ToolsPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.ToolsPanel.Location = new System.Drawing.Point(8, 8);
             this.ToolsPanel.Name = "ToolsPanel";
@@ -110,6 +113,20 @@ namespace Photon.Pages.Home
             this.ToolsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.ToolsPanel.Size = new System.Drawing.Size(624, 1010);
             this.ToolsPanel.TabIndex = 2;
+            // 
+            // TorchtBtn
+            // 
+            this.TorchtBtn.AutoSize = true;
+            this.TorchtBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TorchtBtn.Font = new System.Drawing.Font("Arial Black", 10F);
+            this.TorchtBtn.Location = new System.Drawing.Point(423, 693);
+            this.TorchtBtn.Margin = new System.Windows.Forms.Padding(8);
+            this.TorchtBtn.Name = "TorchtBtn";
+            this.TorchtBtn.Size = new System.Drawing.Size(193, 129);
+            this.TorchtBtn.TabIndex = 24;
+            this.TorchtBtn.Text = "Torcht";
+            this.TorchtBtn.UseVisualStyleBackColor = true;
+            this.TorchtBtn.Click += new System.EventHandler(this.TorchtBtn_Click);
             // 
             // UtilitiesHeader
             // 
@@ -212,21 +229,6 @@ namespace Photon.Pages.Home
             this.PluginManifestButton.Text = "Create Spectrum Plugin Manifest";
             this.PluginManifestButton.UseVisualStyleBackColor = true;
             // 
-            // SpectrumLogsBtn
-            // 
-            this.SpectrumLogsBtn.AutoSize = true;
-            this.ToolsPanel.SetColumnSpan(this.SpectrumLogsBtn, 2);
-            this.SpectrumLogsBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SpectrumLogsBtn.Enabled = false;
-            this.SpectrumLogsBtn.Font = new System.Drawing.Font("Arial Black", 10F);
-            this.SpectrumLogsBtn.Location = new System.Drawing.Point(215, 513);
-            this.SpectrumLogsBtn.Margin = new System.Windows.Forms.Padding(8);
-            this.SpectrumLogsBtn.Name = "SpectrumLogsBtn";
-            this.SpectrumLogsBtn.Size = new System.Drawing.Size(401, 129);
-            this.SpectrumLogsBtn.TabIndex = 8;
-            this.SpectrumLogsBtn.Text = "View Spectrum Logs";
-            this.SpectrumLogsBtn.UseVisualStyleBackColor = true;
-            // 
             // SpectrumPluginsBtn
             // 
             this.SpectrumPluginsBtn.AutoSize = true;
@@ -290,10 +292,10 @@ namespace Photon.Pages.Home
             this.OnlineServersBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.OnlineServersBtn.Enabled = false;
             this.OnlineServersBtn.Font = new System.Drawing.Font("Arial Black", 10F);
-            this.OnlineServersBtn.Location = new System.Drawing.Point(8, 873);
+            this.OnlineServersBtn.Location = new System.Drawing.Point(8, 8);
             this.OnlineServersBtn.Margin = new System.Windows.Forms.Padding(8);
             this.OnlineServersBtn.Name = "OnlineServersBtn";
-            this.OnlineServersBtn.Size = new System.Drawing.Size(191, 129);
+            this.OnlineServersBtn.Size = new System.Drawing.Size(296, 129);
             this.OnlineServersBtn.TabIndex = 11;
             this.OnlineServersBtn.Text = "View Online Servers";
             this.OnlineServersBtn.UseVisualStyleBackColor = true;
@@ -304,10 +306,10 @@ namespace Photon.Pages.Home
             this.SocialMediaBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SocialMediaBtn.Enabled = false;
             this.SocialMediaBtn.Font = new System.Drawing.Font("Arial Black", 10F);
-            this.SocialMediaBtn.Location = new System.Drawing.Point(215, 873);
+            this.SocialMediaBtn.Location = new System.Drawing.Point(320, 8);
             this.SocialMediaBtn.Margin = new System.Windows.Forms.Padding(8);
             this.SocialMediaBtn.Name = "SocialMediaBtn";
-            this.SocialMediaBtn.Size = new System.Drawing.Size(192, 129);
+            this.SocialMediaBtn.Size = new System.Drawing.Size(296, 129);
             this.SocialMediaBtn.TabIndex = 14;
             this.SocialMediaBtn.Text = "Refract\'s Social Media";
             this.SocialMediaBtn.UseVisualStyleBackColor = true;
@@ -325,6 +327,21 @@ namespace Photon.Pages.Home
             this.DownloadSpectrumBtn.Text = "Download Spectrum";
             this.DownloadSpectrumBtn.UseVisualStyleBackColor = true;
             this.DownloadSpectrumBtn.Click += new System.EventHandler(this.DownloadSpectrumBtn_Click);
+            // 
+            // SpectrumLogsBtn
+            // 
+            this.SpectrumLogsBtn.AutoSize = true;
+            this.ToolsPanel.SetColumnSpan(this.SpectrumLogsBtn, 2);
+            this.SpectrumLogsBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SpectrumLogsBtn.Enabled = false;
+            this.SpectrumLogsBtn.Font = new System.Drawing.Font("Arial Black", 10F);
+            this.SpectrumLogsBtn.Location = new System.Drawing.Point(215, 513);
+            this.SpectrumLogsBtn.Margin = new System.Windows.Forms.Padding(8);
+            this.SpectrumLogsBtn.Name = "SpectrumLogsBtn";
+            this.SpectrumLogsBtn.Size = new System.Drawing.Size(401, 129);
+            this.SpectrumLogsBtn.TabIndex = 8;
+            this.SpectrumLogsBtn.Text = "View Spectrum Logs";
+            this.SpectrumLogsBtn.UseVisualStyleBackColor = true;
             // 
             // SettingsBtn
             // 
@@ -382,6 +399,24 @@ namespace Photon.Pages.Home
             this.Separator_1.Size = new System.Drawing.Size(640, 1);
             this.Separator_1.TabIndex = 5;
             // 
+            // OnlineLayout
+            // 
+            this.OnlineLayout.ColumnCount = 2;
+            this.ToolsPanel.SetColumnSpan(this.OnlineLayout, 3);
+            this.OnlineLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.OnlineLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.OnlineLayout.Controls.Add(this.SocialMediaBtn, 1, 0);
+            this.OnlineLayout.Controls.Add(this.OnlineServersBtn, 0, 0);
+            this.OnlineLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.OnlineLayout.Location = new System.Drawing.Point(0, 865);
+            this.OnlineLayout.Margin = new System.Windows.Forms.Padding(0);
+            this.OnlineLayout.Name = "OnlineLayout";
+            this.OnlineLayout.RowCount = 1;
+            this.OnlineLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.OnlineLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.OnlineLayout.Size = new System.Drawing.Size(624, 145);
+            this.OnlineLayout.TabIndex = 25;
+            // 
             // HomePage
             // 
             this.AutoSize = true;
@@ -400,6 +435,8 @@ namespace Photon.Pages.Home
             this.ToolsPanel.PerformLayout();
             this.TopBar.ResumeLayout(false);
             this.TopBar.PerformLayout();
+            this.OnlineLayout.ResumeLayout(false);
+            this.OnlineLayout.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -428,5 +465,7 @@ namespace Photon.Pages.Home
         private System.Windows.Forms.Panel Separator_1;
         private System.Windows.Forms.Panel SettingsCategoryContainer;
         private GUI.PhotonButton DownloadSpectrumBtn;
+        private GUI.PhotonButton TorchtBtn;
+        private System.Windows.Forms.TableLayoutPanel OnlineLayout;
     }
 }

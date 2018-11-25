@@ -34,6 +34,7 @@ namespace Photon.Pages.Settings
             this.MainPanel = new System.Windows.Forms.Panel();
             this.OptionsLayout = new Photon.GUI.PhotonPanel();
             this.OptionsTable = new System.Windows.Forms.TableLayoutPanel();
+            this.DarkModeName = new Photon.GUI.PhotonLabel();
             this.InterfaceColorName = new Photon.GUI.PhotonLabel();
             this.GamePathName = new Photon.GUI.PhotonLabel();
             this.GamePathContainer = new System.Windows.Forms.Panel();
@@ -45,15 +46,14 @@ namespace Photon.Pages.Settings
             this.InterfaceColorBtn = new Photon.GUI.PhotonButtonSimple();
             this.ResetSettingsContainer = new System.Windows.Forms.Panel();
             this.ResetSettings = new Photon.GUI.PhotonButtonSimple();
+            this.DarkModeContainer = new System.Windows.Forms.Panel();
+            this.DarkModeBox = new Photon.GUI.PhotonCheckButton();
             this.BottomPanel = new System.Windows.Forms.Panel();
             this.ActionButtonsFlow = new System.Windows.Forms.FlowLayoutPanel();
             this.Cancel = new Photon.GUI.PhotonTrayButton();
             this.Ok = new Photon.GUI.PhotonTrayButton();
             this.ApplyBtn = new Photon.GUI.PhotonTrayButton();
             this.BottomSeparator = new System.Windows.Forms.Panel();
-            this.DarkModeBox = new Photon.GUI.PhotonCheckButton();
-            this.DarkModeContainer = new System.Windows.Forms.Panel();
-            this.DarkModeName = new Photon.GUI.PhotonLabel();
             this.MainPanel.SuspendLayout();
             this.OptionsLayout.SuspendLayout();
             this.OptionsTable.SuspendLayout();
@@ -61,9 +61,9 @@ namespace Photon.Pages.Settings
             this.InterfaceColorContainer.SuspendLayout();
             this.InterfaceColorPreview.SuspendLayout();
             this.ResetSettingsContainer.SuspendLayout();
+            this.DarkModeContainer.SuspendLayout();
             this.BottomPanel.SuspendLayout();
             this.ActionButtonsFlow.SuspendLayout();
-            this.DarkModeContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainPanel
@@ -113,6 +113,20 @@ namespace Photon.Pages.Settings
             this.OptionsTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.OptionsTable.Size = new System.Drawing.Size(608, 127);
             this.OptionsTable.TabIndex = 0;
+            // 
+            // DarkModeName
+            // 
+            this.DarkModeName.AutoSize = true;
+            this.DarkModeName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DarkModeName.Font = new System.Drawing.Font("Arial Black", 10F, System.Drawing.FontStyle.Bold);
+            this.DarkModeName.ForeColor = System.Drawing.Color.White;
+            this.DarkModeName.Location = new System.Drawing.Point(4, 39);
+            this.DarkModeName.Margin = new System.Windows.Forms.Padding(0, 0, 4, 0);
+            this.DarkModeName.Name = "DarkModeName";
+            this.DarkModeName.Size = new System.Drawing.Size(136, 48);
+            this.DarkModeName.TabIndex = 8;
+            this.DarkModeName.Text = "Dark mode :";
+            this.DarkModeName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // InterfaceColorName
             // 
@@ -260,6 +274,29 @@ namespace Photon.Pages.Settings
             this.ResetSettings.UseVisualStyleBackColor = true;
             this.ResetSettings.Click += new System.EventHandler(this.ResetSettings_Click);
             // 
+            // DarkModeContainer
+            // 
+            this.DarkModeContainer.Controls.Add(this.DarkModeBox);
+            this.DarkModeContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DarkModeContainer.Location = new System.Drawing.Point(144, 39);
+            this.DarkModeContainer.Margin = new System.Windows.Forms.Padding(0);
+            this.DarkModeContainer.Name = "DarkModeContainer";
+            this.DarkModeContainer.Size = new System.Drawing.Size(464, 48);
+            this.DarkModeContainer.TabIndex = 7;
+            // 
+            // DarkModeBox
+            // 
+            this.DarkModeBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.DarkModeBox.Checked = false;
+            this.DarkModeBox.Enabled = false;
+            this.DarkModeBox.Font = new System.Drawing.Font("Arial", 10F);
+            this.DarkModeBox.Location = new System.Drawing.Point(365, 8);
+            this.DarkModeBox.Name = "DarkModeBox";
+            this.DarkModeBox.Size = new System.Drawing.Size(91, 32);
+            this.DarkModeBox.TabIndex = 6;
+            this.DarkModeBox.Text = "Off";
+            this.DarkModeBox.Click += new System.EventHandler(this.DarkModeBox_Click);
+            // 
             // BottomPanel
             // 
             this.BottomPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -336,42 +373,6 @@ namespace Photon.Pages.Settings
             this.BottomSeparator.Size = new System.Drawing.Size(640, 1);
             this.BottomSeparator.TabIndex = 4;
             // 
-            // DarkModeBox
-            // 
-            this.DarkModeBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.DarkModeBox.Checked = false;
-            this.DarkModeBox.Font = new System.Drawing.Font("Arial", 10F);
-            this.DarkModeBox.Location = new System.Drawing.Point(365, 8);
-            this.DarkModeBox.Name = "DarkModeBox";
-            this.DarkModeBox.Size = new System.Drawing.Size(91, 32);
-            this.DarkModeBox.TabIndex = 6;
-            this.DarkModeBox.Text = "Off";
-            this.DarkModeBox.Click += new System.EventHandler(this.DarkModeBox_Click);
-            // 
-            // DarkModeContainer
-            // 
-            this.DarkModeContainer.Controls.Add(this.DarkModeBox);
-            this.DarkModeContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DarkModeContainer.Location = new System.Drawing.Point(144, 39);
-            this.DarkModeContainer.Margin = new System.Windows.Forms.Padding(0);
-            this.DarkModeContainer.Name = "DarkModeContainer";
-            this.DarkModeContainer.Size = new System.Drawing.Size(464, 48);
-            this.DarkModeContainer.TabIndex = 7;
-            // 
-            // DarkModeName
-            // 
-            this.DarkModeName.AutoSize = true;
-            this.DarkModeName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DarkModeName.Font = new System.Drawing.Font("Arial Black", 10F, System.Drawing.FontStyle.Bold);
-            this.DarkModeName.ForeColor = System.Drawing.Color.White;
-            this.DarkModeName.Location = new System.Drawing.Point(4, 39);
-            this.DarkModeName.Margin = new System.Windows.Forms.Padding(0, 0, 4, 0);
-            this.DarkModeName.Name = "DarkModeName";
-            this.DarkModeName.Size = new System.Drawing.Size(136, 48);
-            this.DarkModeName.TabIndex = 8;
-            this.DarkModeName.Text = "Dark mode :";
-            this.DarkModeName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // SettingsPage
             // 
             this.AutoScroll = true;
@@ -396,10 +397,10 @@ namespace Photon.Pages.Settings
             this.InterfaceColorPreview.ResumeLayout(false);
             this.ResetSettingsContainer.ResumeLayout(false);
             this.ResetSettingsContainer.PerformLayout();
+            this.DarkModeContainer.ResumeLayout(false);
             this.BottomPanel.ResumeLayout(false);
             this.ActionButtonsFlow.ResumeLayout(false);
             this.ActionButtonsFlow.PerformLayout();
-            this.DarkModeContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

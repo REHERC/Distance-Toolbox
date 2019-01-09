@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Windows.Forms;
 using Photon.Globals;
 
 namespace Photon.Serialization
@@ -19,6 +18,15 @@ namespace Photon.Serialization
                     break;
                 case SerializerType.Json:
                     DataSerializer = new JsonGenericSerializer<DATA_TYPE>();
+                    break;
+                case SerializerType.Bin:
+                    DataSerializer = new BinGenericSerializer<DATA_TYPE>();
+                    break;
+                case SerializerType.Yaml:
+                    DataSerializer = new YamlGenericSerializer<DATA_TYPE>();
+                    break;
+                case SerializerType.Csv:
+                    DataSerializer = new CsvGenericSerializer<DATA_TYPE>();
                     break;
             }
             
